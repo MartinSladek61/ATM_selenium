@@ -7,6 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+/**
+ * Třída AbstractWorkPage slouží k definování metod společným pro všechny stránky aplikace
+ */
 public class AbstractWorkPage extends DriverSettings {
 
     public boolean isOpen(){ return true; }
@@ -23,7 +26,7 @@ public class AbstractWorkPage extends DriverSettings {
 
     public boolean isElementPresent(By by){
         try {
-            WebDriverWait wait = new WebDriverWait(getDriver(), 5);
+            WebDriverWait wait = new WebDriverWait(getDriver(), 10);
             wait.until(ExpectedConditions.visibilityOfElementLocated(by));
             return true;
         } catch (TimeoutException e) {

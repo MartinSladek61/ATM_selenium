@@ -8,4 +8,9 @@ public class AbstractWorkTest {
         AbstractWorkTestStep step = new AbstractWorkTestStep();
         step.login();
     }
+
+    public static void goToHrm() {
+        AbstractWorkTestStep step = new AbstractWorkTestStep();
+        step.clickToHrm();
+    }
 }

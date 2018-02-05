@@ -9,11 +9,14 @@ import webtest.work.base.AbstractWorkTest;
 public class WorkSmokeTest {
 
     @BeforeMethod
-    public void inicializeDriver() { DriverSettings.inicializeDriver(); }
+    public void inicializeDriver() {
+        DriverSettings.inicializeDriver();
+        AbstractWorkTest.login();
+    }
 
     @AfterMethod
     public void closeDriver() { DriverSettings.getDriver().close(); }
 
     @Test
-    public void loginToWork() { AbstractWorkTest.login() ; }
+    public void goToHrm() { AbstractWorkTest.goToHrm(); }
 }
