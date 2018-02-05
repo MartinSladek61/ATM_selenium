@@ -11,7 +11,7 @@ public class DriverSettings {
     public static WebDriver getDriver(){ return driver; }
 
     public static void inicializeDriver(){
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Martin\\Desktop\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Program Files (x86)\\ChromeDriver\\chromedriver.exe");
         String baseUrl = "https://test2:Sparta2857@test1.iswork.cz/";
         driver = new ChromeDriver();
         driver.get(baseUrl);
