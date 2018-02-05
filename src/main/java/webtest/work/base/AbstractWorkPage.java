@@ -1,11 +1,10 @@
 package webtest.work.base;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.ArrayList;
 
 /**
  * Třída AbstractWorkPage slouží k definování metod společným pro všechny stránky aplikace
@@ -32,6 +31,18 @@ public class AbstractWorkPage extends DriverSettings {
         } catch (TimeoutException e) {
             return false;
         }
+    }
+
+    public void switchToTabs(WebDriver driver, int tabIndex) {
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(tabIndex));
+        //driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL +"w");
+    }
+
+    public static void closeTab(WebDriver driver, int tabIndex){
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(tabIndex));
+        driver.close();
     }
 
     public void sleep(int milis) {

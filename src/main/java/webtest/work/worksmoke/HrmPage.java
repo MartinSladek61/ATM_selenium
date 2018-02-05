@@ -6,7 +6,7 @@ import webtest.work.base.AbstractWorkPage;
 
 public class HrmPage extends AbstractWorkPage{
 
-    private static final String MAIN_HEADER_LABEL_XPATH = "//span[text()=' Zaměstnanec']";
+    private static final String MAIN_HEADER_LABEL_XPATH = "//h1[contains(text(),'Karta zaměstnance')]";
 
     @Override
     public boolean isOpen() { return isElementPresent(By.xpath(MAIN_HEADER_LABEL_XPATH));}
