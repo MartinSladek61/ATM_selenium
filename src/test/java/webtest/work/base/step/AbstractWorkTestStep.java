@@ -18,7 +18,7 @@ public class AbstractWorkTestStep {
         assertTrue(homePage.isUserLogged(), "User isn't logged correctly.");
     }
 
-    public void clickToHrm() {
+    public void goToHrm() {
         HomePage homePage = new HomePage();
         assertTrue(homePage.isUserLogged(), "User isn't logged correctly.");
         homePage.clickToHrm();

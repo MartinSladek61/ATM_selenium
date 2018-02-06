@@ -36,7 +36,6 @@ public class AbstractWorkPage extends DriverSettings {
     public void switchToTabs(WebDriver driver, int tabIndex) {
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(tabIndex));
-        //driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL +"w");
     }
 
     public static void closeTab(WebDriver driver, int tabIndex){

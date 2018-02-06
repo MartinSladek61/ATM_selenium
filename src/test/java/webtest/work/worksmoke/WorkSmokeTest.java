@@ -18,5 +18,5 @@ public class WorkSmokeTest {
     public void closeDriver() { DriverSettings.getDriver().close(); }
 
     @Test
-    public void goToHrm() { AbstractWorkTest.goToHrm(); }
+    public void goToHrm() { AbstractWorkTest.newPerson(); }
 }
