@@ -1,6 +1,7 @@
 package webtest.work.base;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -10,6 +11,10 @@ import java.util.ArrayList;
  * Třída AbstractWorkPage slouží k definování metod společným pro všechny stránky aplikace
  */
 public class AbstractWorkPage extends DriverSettings {
+
+    public AbstractWorkPage(){
+        PageFactory.initElements(DriverSettings.getDriver(), this);
+    }
 
     public boolean isOpen(){ return true; }
 
@@ -23,14 +28,18 @@ public class AbstractWorkPage extends DriverSettings {
 
     public void performClick(WebElement element) { element.click(); }
 
-    public boolean isElementPresent(By by){
+    /**
+     * checks if is element present on page
+     * @param element
+     * @return
+     */
+    public boolean isElementPresent(WebElement element){
         try {
-            WebDriverWait wait = new WebDriverWait(getDriver(), 10);
-            wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-            return true;
-        } catch (TimeoutException e) {
+            element.isDisplayed();
+        } catch (NoSuchElementException e) {
             return false;
         }
+        return true;
     }
 
     public void switchToTabs(WebDriver driver, int tabIndex) {

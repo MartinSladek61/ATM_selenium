@@ -6,4 +6,8 @@ import webtest.work.base.AbstractWorkPage;
 
 public class WorkflowPage extends AbstractWorkPage{
 
+
+    public WorkflowPage(){
+        super();
+    }
 }

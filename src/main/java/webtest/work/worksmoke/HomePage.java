@@ -2,20 +2,24 @@ package webtest.work.worksmoke;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 import webtest.work.base.AbstractWorkPage;
 
 public class HomePage extends AbstractWorkPage{
 
-    private static final String MAIN_HEADER_LABEL_XPATH = "//h2[text()='WORK InfoPortál']";
-    private static final String WORK_HRM_FAST_ACCESS_BUTTON_XPATH = "//div[@class='col-lg-6']/a[@href='./appmanager.php?app=work_hrm']";
+    @FindBy(how = How.XPATH, using = "//h2[text()='WORK InfoPortál']")
+    WebElement mainHeaderLabel;
+    @FindBy(how = How.XPATH, using = "//div[@class='col-lg-6']/a[@href='./appmanager.php?app=work_hrm']")
+    WebElement workHrmFastAccesButton;
 
-    public void clickToHrm () {
-        performClick(getWorkHrmButtonElement());
+    public HomePage(){
+        super();
     }
 
-    public boolean isUserLogged() { return isElementPresent(By.xpath(MAIN_HEADER_LABEL_XPATH)); }
+    public void clickToHrm () {
+        performClick(workHrmFastAccesButton);
+    }
 
-    private WebElement getHomeLogoElement() { return findElementByXpath(MAIN_HEADER_LABEL_XPATH); }
-
-    private WebElement getWorkHrmButtonElement() { return findElementByXpath(WORK_HRM_FAST_ACCESS_BUTTON_XPATH); }
+    public boolean isUserLogged() { return isElementPresent(mainHeaderLabel); }
 }

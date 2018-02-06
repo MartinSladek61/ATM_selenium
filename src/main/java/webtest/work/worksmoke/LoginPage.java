@@ -2,27 +2,31 @@ package webtest.work.worksmoke;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 import webtest.work.base.AbstractWorkPage;
 import webtest.work.base.PropertiesData;
 
 public class LoginPage extends AbstractWorkPage {
 
-    private static final String NICKNAME_FIELD_NAME = "login";
-    private static final String PASSWORD_FIELD_NAME = "heslo";
-    private static final String LOGIN_BUTTON_CLASSNAME = "login-buttons";
+    @FindBy(how= How.NAME, using = "login")
+    WebElement nicknameFieldElement;
+    @FindBy(how= How.NAME, using = "heslo")
+    WebElement passwdFieldElement;
+    @FindBy(how= How.CLASS_NAME, using = "login-buttons")
+    WebElement loginButtonElement;
 
-    @Override
-    public boolean isOpen() { return isElementPresent(By.name(NICKNAME_FIELD_NAME)); }
-
-    public void login() {
-        setText(getNicknameFieldElement(), PropertiesData.getUsername());
-        setText(getPasswordFieldElement(), PropertiesData.getPassword());
-        performClick(getLoginButtonElement());
+    public LoginPage(){
+        super();
     }
 
-    private WebElement getNicknameFieldElement() { return findElementByName(NICKNAME_FIELD_NAME); }
+    @Override
+    public boolean isOpen() { return isElementPresent(nicknameFieldElement); }
 
-    private WebElement getPasswordFieldElement() { return findElementByName(PASSWORD_FIELD_NAME); }
+    public void login() {
+        setText(nicknameFieldElement, PropertiesData.getUsername());
+        setText(passwdFieldElement, PropertiesData.getPassword());
+        performClick(loginButtonElement);
+    }
 
-    private WebElement getLoginButtonElement() { return findElementByClassName(LOGIN_BUTTON_CLASSNAME); }
 }

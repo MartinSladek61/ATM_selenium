@@ -1,12 +1,14 @@
 package webtest.work.worksmoke;
 
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import webtest.work.base.DriverSettings;
 import webtest.work.base.AbstractWorkTest;
+import org.openqa.selenium.WebDriver;
 
-public class WorkSmokeTest {
+public class WorkflowNewPersonTest {
 
     @BeforeMethod
     public void inicializeDriver() {
@@ -15,6 +17,7 @@ public class WorkSmokeTest {
     }
 
     @AfterMethod
+    //TODO logout()
     public void closeDriver() { DriverSettings.getDriver().close(); }
 
     @Test
