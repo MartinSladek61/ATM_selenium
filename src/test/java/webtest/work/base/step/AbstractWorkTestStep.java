@@ -28,4 +28,16 @@ public class AbstractWorkTestStep {
         hrmPage.closeTab(DriverSettings.getDriver(), 0);
         hrmPage.switchToTabs(DriverSettings.getDriver(), 0);
     }
+
+    public void logoutFromHrm(){
+        HrmPage hrmPage = new HrmPage();
+        hrmPage.logoutFromHrmPage();
+        HomePage homePage = new HomePage();
+        homePage.logoutFromHomePage();
+    }
+
+    public void logoutFromHome(){
+        HomePage homePage = new HomePage();
+        homePage.logoutFromHomePage();
+    }
 }

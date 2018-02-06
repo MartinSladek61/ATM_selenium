@@ -62,4 +62,10 @@ public class AbstractWorkPage extends DriverSettings {
     }
 
     public void setText(WebElement element, String text) { element.sendKeys(text);}
+
+    public void logoutFromWork(WebElement userImageRTopCorner, WebElement logoutButton){
+        String expanded = userImageRTopCorner.getAttribute("aria-expanded");
+        if(expanded == "false") { performClick(userImageRTopCorner); }
+        performClick(logoutButton);
+    }
 }

@@ -11,14 +11,15 @@ import org.openqa.selenium.WebDriver;
 public class WorkflowNewPersonTest {
 
     @BeforeMethod
-    public void inicializeDriver() {
+    public void inicializeDriver() throws Exception{
+        DriverSettings.closeAllInstancesOfChromeDriver();
         DriverSettings.inicializeDriver();
         AbstractWorkTest.login();
     }
 
     @AfterMethod
     //TODO logout()
-    public void closeDriver() { DriverSettings.getDriver().close(); }
+    //public void closeDriver() { DriverSettings.getDriver().close(); }
 
     @Test
     public void goToHrm() { AbstractWorkTest.newPerson(); }

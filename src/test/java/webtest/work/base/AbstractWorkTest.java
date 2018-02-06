@@ -12,5 +12,7 @@ public class AbstractWorkTest {
     public static void newPerson() {
         AbstractWorkTestStep step = new AbstractWorkTestStep();
         step.goToHrm();
+
+        step.logoutFromHrm();
     }
 }

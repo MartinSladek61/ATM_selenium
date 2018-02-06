@@ -12,9 +12,17 @@ public class HomePage extends AbstractWorkPage{
     WebElement mainHeaderLabel;
     @FindBy(how = How.XPATH, using = "//div[@class='col-lg-6']/a[@href='./appmanager.php?app=work_hrm']")
     WebElement workHrmFastAccesButton;
+    @FindBy(how = How.CLASS_NAME, using = "user-image")
+    WebElement userImageRTopCorner;
+    @FindBy(how = How.XPATH, using = "//a[contains(text(), 'Odhlásit se')]")
+    WebElement logoutButton;
 
     public HomePage(){
         super();
+    }
+
+    public void logoutFromHomePage(){
+        logoutFromWork(userImageRTopCorner, logoutButton);
     }
 
     public void clickToHrm () {
