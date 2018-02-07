@@ -1,23 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dd52d865-a7c1-434a-8391-0841a0aee3e8" name="Default" comment="MS&gt;dodelani logoutu">
+    <list default="true" id="dd52d865-a7c1-434a-8391-0841a0aee3e8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/webtest/work/base/AbstractWorkPage.class" afterPath="$PROJECT_DIR$/target/classes/webtest/work/base/AbstractWorkPage.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/webtest/work/base/DriverSettings.class" afterPath="$PROJECT_DIR$/target/classes/webtest/work/base/DriverSettings.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/webtest/work/worksmoke/HomePage.class" afterPath="$PROJECT_DIR$/target/classes/webtest/work/worksmoke/HomePage.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/webtest/work/base/AbstractWorkTest.class" afterPath="$PROJECT_DIR$/target/test-classes/webtest/work/base/AbstractWorkTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/webtest/work/base/step/AbstractWorkTestStep.class" afterPath="$PROJECT_DIR$/target/test-classes/webtest/work/base/step/AbstractWorkTestStep.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webtest/work/base/AbstractWorkPage.java" afterPath="$PROJECT_DIR$/src/main/java/webtest/work/base/AbstractWorkPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webtest/work/base/DriverSettings.java" afterPath="$PROJECT_DIR$/src/main/java/webtest/work/base/DriverSettings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webtest/work/base/PropertiesData.java" afterPath="$PROJECT_DIR$/src/main/java/webtest/work/base/PropertiesData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/HomePage.java" afterPath="$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/HomePage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/HrmPage.java" afterPath="$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/HrmPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/LoginPage.java" afterPath="$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/LoginPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/WorkflowPage.java" afterPath="$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/WorkflowPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/webtest/work/base/AbstractWorkTest.java" afterPath="$PROJECT_DIR$/src/test/java/webtest/work/base/AbstractWorkTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/webtest/work/base/step/AbstractWorkTestStep.java" afterPath="$PROJECT_DIR$/src/test/java/webtest/work/base/step/AbstractWorkTestStep.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/webtest/work/worksmoke/WorkflowNewPersonTest.java" afterPath="$PROJECT_DIR$/src/test/java/webtest/work/worksmoke/WorkflowNewPersonTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -644,7 +634,14 @@
       <option name="project" value="LOCAL" />
       <updated>1517933587531</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="MS&gt;dodelani logoutu">
+      <created>1518013440332</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1518013440332</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <option name="trackContextForNewChangelist" value="true" />
     <servers />
   </component>
