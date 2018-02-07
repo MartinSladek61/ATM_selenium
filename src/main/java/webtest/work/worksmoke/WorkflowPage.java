@@ -7,7 +7,8 @@ import webtest.work.base.AbstractWorkPage;
 public class WorkflowPage extends AbstractWorkPage{
 
 
-    public WorkflowPage(){
-        super();
-    }
+    /**
+     * Constructor - overrides by super
+     */
+    public WorkflowPage(){ super(); }
 }

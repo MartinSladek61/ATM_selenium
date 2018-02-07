@@ -9,25 +9,38 @@ import webtest.work.base.AbstractWorkPage;
 public class HomePage extends AbstractWorkPage{
 
     @FindBy(how = How.XPATH, using = "//h2[text()='WORK InfoPortál']")
-    WebElement mainHeaderLabel;
+    private WebElement mainHeaderLabel;
     @FindBy(how = How.XPATH, using = "//div[@class='col-lg-6']/a[@href='./appmanager.php?app=work_hrm']")
-    WebElement workHrmFastAccesButton;
+    private WebElement workHrmFastAccesButton;
     @FindBy(how = How.CLASS_NAME, using = "user-image")
-    WebElement userImageRTopCorner;
+    private WebElement userImageRTopCorner;
     @FindBy(how = How.XPATH, using = "//a[contains(text(), 'Odhlásit se')]")
-    WebElement logoutButton;
+    private WebElement logoutButton;
 
+    /**
+     * Constructor - overrides by super
+     */
     public HomePage(){
         super();
     }
 
+    /**
+     * Logouts from WORK's homepage
+     */
     public void logoutFromHomePage(){
         logoutFromWork(userImageRTopCorner, logoutButton);
     }
 
+    /**
+     * clicks on WORK HRM button on home page
+     */
     public void clickToHrm () {
         performClick(workHrmFastAccesButton);
     }
 
+    /**
+     * Checks if is user logged by checking given element
+     * @return boolean value
+     */
     public boolean isUserLogged() { return isElementPresent(mainHeaderLabel); }
 }

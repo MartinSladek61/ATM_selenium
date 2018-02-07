@@ -18,9 +18,8 @@ public class WorkflowNewPersonTest {
     }
 
     @AfterMethod
-    //TODO logout()
     //public void closeDriver() { DriverSettings.getDriver().close(); }
 
     @Test
-    public void goToHrm() { AbstractWorkTest.newPerson(); }
-}
+    public void ISW_364() { AbstractWorkTest.newPerson(); }
+    }

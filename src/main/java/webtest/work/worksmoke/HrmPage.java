@@ -9,19 +9,39 @@ import webtest.work.base.AbstractWorkPage;
 public class HrmPage extends AbstractWorkPage{
 
     @FindBy(how = How.XPATH, using = "//h1[contains(text(),'Karta zaměstnance')]")
-    WebElement mainHeaderLabel;
+    private WebElement mainHeaderLabel;
     @FindBy(how = How.CLASS_NAME, using = "user-image")
-    WebElement userImageRTopCorner;
+    private WebElement userImageRTopCorner;
     @FindBy(how = How.XPATH, using = "//a[contains(text(), 'Odhlásit se')]")
-    WebElement logoutButton;
+    private WebElement logoutButton;
+    @FindBy(how = How.XPATH, using = "//a[@href='./workflow.php']")
+    private WebElement workFlowLeftMenu;
 
+    /**
+     * Constructor - overrides by super
+     */
     public HrmPage(){
         super();
     }
 
+    /**
+     * Overrides isOpen - checking if the page is loaded
+     * @return boolean value
+     */
     @Override
     public boolean isOpen() { return isElementPresent(mainHeaderLabel);}
 
+    /**
+     * Goes to Work Flow page
+     */
+    public void goToWorkFlow(){
+        isElementPresent(workFlowLeftMenu);
+        performClick(workFlowLeftMenu);
+    }
+
+    /**
+     * Logouts from WORK's HRM page
+     */
     public void logoutFromHrmPage(){
         logoutFromWork(userImageRTopCorner, logoutButton);
     }

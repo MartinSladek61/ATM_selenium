@@ -12,8 +12,16 @@ import java.util.concurrent.TimeUnit;
 public class DriverSettings {
     private static WebDriver driver;
 
+    /**
+     * Contructor
+     * @return webdriver
+     */
     public static WebDriver getDriver(){ return driver; }
 
+    /**
+     * Inicializes driver from path in property by given url, maximizes window, sets implicit wait
+     * @return webdriver
+     */
     public static WebDriver inicializeDriver(){
         System.setProperty("webdriver.chrome.driver", "C:\\Program Files (x86)\\ChromeDriver\\chromedriver.exe");
         String baseUrl = "https://test2:Sparta2857@test1.iswork.cz/";
@@ -21,9 +29,13 @@ public class DriverSettings {
         driver.get(baseUrl);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        return driver;
+        return  driver;
     }
 
+    /**
+     * Closes all previously created instances of ChromeDriver
+     * @throws Exception if
+     */
     public static void closeAllInstancesOfChromeDriver() throws Exception{
         String processName = "chromedriver.exe";
         if (isProcessRunning(processName)) {
@@ -31,7 +43,12 @@ public class DriverSettings {
         }
     }
 
-    public static boolean isProcessRunning(String serviceName) {
+    /**
+     * Checks if process id running by given serviceName
+     * @param serviceName name of the service
+     * @return boolean value
+     */
+    private static boolean isProcessRunning(String serviceName) {
         final String TASKLIST = "tasklist";
         try {
             Process p = Runtime.getRuntime().exec(TASKLIST);
@@ -48,10 +65,20 @@ public class DriverSettings {
         return false;
     }
 
-    public static void killProcess(String serviceName) throws Exception{
+    /**
+     * Kills running process by given serviceName
+     * @param serviceName name of the service
+     * @throws Exception e
+     */
+    private static void killProcess(String serviceName) throws Exception{
         final String KILL = "taskkill /F /IM ";
         Runtime.getRuntime().exec(KILL + serviceName + " /T");
     }
 
-    protected WebElement findElement(By by) { return getDriver().findElement(by);}
+    /**
+     * Finds Element by by in web driver
+     * @param by By which identifier is required locating th element
+     * @return WebElement
+     */
+    WebElement findElement(By by) { return getDriver().findElement(by);}
 }

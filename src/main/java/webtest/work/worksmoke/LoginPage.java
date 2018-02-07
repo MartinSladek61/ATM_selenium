@@ -10,19 +10,27 @@ import webtest.work.base.PropertiesData;
 public class LoginPage extends AbstractWorkPage {
 
     @FindBy(how= How.NAME, using = "login")
-    WebElement nicknameFieldElement;
+    private WebElement nicknameFieldElement;
     @FindBy(how= How.NAME, using = "heslo")
-    WebElement passwdFieldElement;
+    private WebElement passwdFieldElement;
     @FindBy(how= How.CLASS_NAME, using = "login-buttons")
-    WebElement loginButtonElement;
+    private WebElement loginButtonElement;
 
-    public LoginPage(){
-        super();
-    }
+    /**
+     * Constructor - overrides by super
+     */
+    public LoginPage(){ super(); }
 
+    /**
+     * Overrides isOpen - checking if the page is loaded
+     * @return boolean value
+     */
     @Override
     public boolean isOpen() { return isElementPresent(nicknameFieldElement); }
 
+    /**
+     * Gives login data to the form, clicks on button and performs login
+     */
     public void login() {
         setText(nicknameFieldElement, PropertiesData.getUsername());
         setText(passwdFieldElement, PropertiesData.getPassword());
