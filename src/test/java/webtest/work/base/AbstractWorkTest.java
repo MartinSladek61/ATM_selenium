@@ -13,12 +13,15 @@ public class AbstractWorkTest {
     }
 
     /**
-     * Declares new person in WORK FLOW
+     * Declares new person in WORK FLOW - Step 0
      */
-    public static void newPerson() {
+    public static void newFullTimePersonHRProcess() {
         AbstractWorkTestStep step = new AbstractWorkTestStep();
         step.goToHrm();
         step.goToWorkFlow();
+        step.checkButtonsOnTop();
+        step.checkAndFillNewHRProcessForm();
+
         step.logoutFromHrm();
     }
 }

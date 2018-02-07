@@ -21,5 +21,5 @@ public class WorkflowNewPersonTest {
     //public void closeDriver() { DriverSettings.getDriver().close(); }
 
     @Test
-    public void ISW_364() { AbstractWorkTest.newPerson(); }
+    public void ISW_364() { AbstractWorkTest.newFullTimePersonHRProcess(); }
     }

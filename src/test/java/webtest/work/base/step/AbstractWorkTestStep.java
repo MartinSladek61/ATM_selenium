@@ -5,6 +5,7 @@ import webtest.work.base.DriverSettings;
 import webtest.work.worksmoke.HrmPage;
 import webtest.work.worksmoke.LoginPage;
 import webtest.work.worksmoke.HomePage;
+import webtest.work.worksmoke.WorkflowPage;
 
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
@@ -34,7 +35,6 @@ public class AbstractWorkTestStep {
         assertTrue(hrmPage.isOpen(), "HRM page doesn't open correctly.");
         hrmPage.closeTab(DriverSettings.getDriver(), 0);
         hrmPage.switchToTabs(DriverSettings.getDriver(), 0);
-        //TODO init the new page
     }
 
     /**
@@ -43,6 +43,19 @@ public class AbstractWorkTestStep {
     public void goToWorkFlow(){
         HrmPage hrmPage = new HrmPage();
         hrmPage.goToWorkFlow();
+        WorkflowPage workflowPage = new WorkflowPage();
+        workflowPage.createNewFullTimePersonHRProcess();
+    }
+
+    public void checkButtonsOnTop(){
+        WorkflowPage workflowPage = new WorkflowPage();
+        workflowPage.cancelCreatingNewPersonTask(false); //TODO zeptat se na pozadavek kliknuti
+    }
+
+    public void checkAndFillNewHRProcessForm(){
+        WorkflowPage workflowPage = new WorkflowPage();
+        workflowPage.checkNewHRProcessFormFields();
+        workflowPage.fillInNewHRProcessFormFields();
     }
 
     /**
