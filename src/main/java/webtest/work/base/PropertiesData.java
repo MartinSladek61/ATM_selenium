@@ -8,7 +8,7 @@ public class PropertiesData {
 
     /**
      * Returns property file from data.properties
-     * @return prop
+     * @return property
      */
     private static Properties getPropertiesFile(){
         Properties prop = new Properties();

@@ -4,7 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.Select;
 import webtest.work.base.AbstractWorkPage;
+import webtest.work.base.DriverSettings;
+
+import java.sql.Driver;
 
 public class WorkflowPage extends AbstractWorkPage{
 
@@ -69,6 +73,13 @@ public class WorkflowPage extends AbstractWorkPage{
     }
 
     public void fillInNewHRProcessFormFields(){
-
+        setText(nameInputFieldElement, "Tester");
+        setText(surnameInputFieldElement, "Testerovič");
+        setText(emailInputFieldElement, "tester.testerovic@email.cz");
+        setText(phoneInputFieldElement, "+420 123 456 789");
+        Select lang = new Select(managerSelectComboBoxElement);
+        lang.selectByValue("Ing. Jan Adminov");
+        setText(startDateInputFieldElement, "01.10.2018");
+        setText(noteInputFieldElement, "Poznámka k Workflow_123456789_/*-+%ˇ");
     }
 }
