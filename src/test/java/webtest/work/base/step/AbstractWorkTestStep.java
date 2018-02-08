@@ -2,10 +2,7 @@ package webtest.work.base.step;
 
 import webtest.work.base.AbstractWorkPage;
 import webtest.work.base.DriverSettings;
-import webtest.work.worksmoke.HrmPage;
-import webtest.work.worksmoke.LoginPage;
-import webtest.work.worksmoke.HomePage;
-import webtest.work.worksmoke.WorkflowPage;
+import webtest.work.worksmoke.*;
 
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
@@ -32,30 +29,41 @@ public class AbstractWorkTestStep {
         homePage.clickToHrm();
         HrmPage hrmPage = new HrmPage();
         hrmPage.switchToTabs(DriverSettings.getDriver(), 1);
-        assertTrue(hrmPage.isOpen(), "HRM page doesn't open correctly.");
         hrmPage.closeTab(DriverSettings.getDriver(), 0);
         hrmPage.switchToTabs(DriverSettings.getDriver(), 0);
+        assertTrue(hrmPage.isOpen(), "HRM page doesn't open correctly.");
     }
 
     /**
-     * Go to Work Flow page
+     * Goes to Work Flow page
      */
     public void goToWorkFlow(){
         HrmPage hrmPage = new HrmPage();
+        assertTrue(hrmPage.isOpen(), "HRM page doesn't open correctly.");
         hrmPage.goToWorkFlow();
         WorkflowPage workflowPage = new WorkflowPage();
+        assertTrue(workflowPage.isOpen(), "Work Flow page doesn't open correctly.");
         workflowPage.createNewFullTimePersonHRProcess();
     }
 
+    /**
+     * Checks Top Button
+     */
     public void checkButtonsOnTop(){
-        WorkflowPage workflowPage = new WorkflowPage();
-        workflowPage.cancelCreatingNewPersonTask(false);
+        NewPersonHRProcessPage newPerson = new NewPersonHRProcessPage();
+        assertTrue(newPerson.isOpen(), "New Person page doesn't open correctly.");
+        newPerson.cancelCreatingNewPersonTask(false);
     }
 
+    /**
+     * Checks form fields and fills them in
+     */
     public void checkAndFillNewHRProcessForm(){
-        WorkflowPage workflowPage = new WorkflowPage();
-        workflowPage.checkNewHRProcessFormFields();
-        workflowPage.fillInNewHRProcessFormFields();
+        NewPersonHRProcessPage newPerson = new NewPersonHRProcessPage();
+        assertTrue(newPerson.isOpen(), "New Person page doesn't open correctly.");
+        newPerson.checkNewHRProcessFormFields();
+        newPerson.fillInNewHRProcessFormFields();
+        newPerson.setOnboardActivities();
     }
 
     /**

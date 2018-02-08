@@ -18,7 +18,7 @@ public class WorkflowNewPersonTest {
     }
 
     @AfterMethod
-    //public void closeDriver() { DriverSettings.getDriver().close(); }
+    public void closeDriver() { DriverSettings.getDriver().close(); }
 
     @Test
     public void ISW_364() { AbstractWorkTest.newFullTimePersonHRProcess(); }
