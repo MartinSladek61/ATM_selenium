@@ -21,7 +21,6 @@ public class AbstractWorkTest {
         step.goToWorkFlow();
         step.checkButtonsOnTop();
         step.checkAndFillNewHRProcessForm();
-
         step.logoutFromHrm();
     }
 }

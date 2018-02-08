@@ -64,6 +64,7 @@ public class AbstractWorkTestStep {
         newPerson.checkNewHRProcessFormFields();
         newPerson.fillInNewHRProcessFormFields();
         newPerson.setOnboardActivities();
+        newPerson.submitFormNewPersonTask();
     }
 
     /**

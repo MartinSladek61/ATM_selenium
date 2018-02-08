@@ -22,4 +22,4 @@ public class WorkflowNewPersonTest {
 
     @Test
     public void ISW_364() throws Exception { AbstractWorkTest.newFullTimePersonHRProcess(); }
-    }
+}
