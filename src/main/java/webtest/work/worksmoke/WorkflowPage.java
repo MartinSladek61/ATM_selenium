@@ -17,8 +17,22 @@ public class WorkflowPage extends AbstractWorkPage{
     @FindBy(how = How.CLASS_NAME, using = "btn btn-danger")
     private WebElement contractTerminationButton;
     @FindBy(how = How.CLASS_NAME, using = "btn btn-box-tool")
-    WebElement cancelTaskButton;
-    //TODO Elemenety ve formulari Vlozeni nove osoby
+    private WebElement cancelTaskButton;
+    //Form - description of elements
+    @FindBy(how = How.NAME, using = "jmeno")
+    private WebElement nameInputFieldElement;
+    @FindBy(how = How.NAME, using = "prijmeni")
+    private WebElement surnameInputFieldElement;
+    @FindBy(how = How.NAME, using = "email")
+    private WebElement emailInputFieldElement;
+    @FindBy(how = How.NAME, using = "telefon")
+    private WebElement phoneInputFieldElement;
+    @FindBy(how = How.NAME, using = "manager")
+    private WebElement managerSelectComboBoxElement;
+    @FindBy(how = How.NAME, using = "datum_pomeru")
+    private WebElement StartDateInputFieldElement;
+    @FindBy(how = How.NAME, using = "poznamka")
+    private WebElement noteInputFieldElement;
 
     /**
      * Constructor - overrides by super
