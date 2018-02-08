@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 import webtest.work.base.AbstractWorkPage;
+import webtest.work.base.UploadDataFromExcel;
 
 public class NewPersonHRProcessPage extends AbstractWorkPage{
 
@@ -63,15 +64,23 @@ public class NewPersonHRProcessPage extends AbstractWorkPage{
     /**
      * Fills field"s in the form
      */
-    public void fillInNewHRProcessFormFields(){
-        setText(nameInputFieldElement, "Tester");
-        setText(surnameInputFieldElement, "Testerovič");
-        setText(emailInputFieldElement, "testy@blue-pool.cz");
-        setText(phoneInputFieldElement, "+420 123 456 789");
+    public void fillInNewHRProcessFormFields() throws Exception {
+        String  name = UploadDataFromExcel.setVariablesForNewPerson("NewPerson1", 1, 0);
+        String  surname = UploadDataFromExcel.setVariablesForNewPerson("NewPerson1", 1, 1);
+        String  email = UploadDataFromExcel.setVariablesForNewPerson("NewPerson1", 1, 2);
+        String  phone = UploadDataFromExcel.setVariablesForNewPerson("NewPerson1", 1, 3);
+        String  manager = UploadDataFromExcel.setVariablesForNewPerson("NewPerson1", 1, 4);
+        String  startDate = UploadDataFromExcel.setVariablesForNewPerson("NewPerson1", 1, 5);
+        String  note = UploadDataFromExcel.setVariablesForNewPerson("NewPerson1", 1, 6);
+
+        setText(nameInputFieldElement, name);
+        setText(surnameInputFieldElement, surname);
+        setText(emailInputFieldElement, email);
+        setText(phoneInputFieldElement, phone);
         Select lang = new Select(managerSelectComboBoxElement);
-        lang.selectByValue("Ing. Jan Adminov");
-        setText(startDateInputFieldElement, "01.10.2018");
-        setText(noteInputFieldElement, "Poznámka k Workflow_123456789_/*-+%ˇ");
+        lang.selectByValue(manager);
+        setText(startDateInputFieldElement, startDate);
+        setText(noteInputFieldElement, note);
     }
 
     public void cancelCreatingNewPersonTask(boolean cancel){

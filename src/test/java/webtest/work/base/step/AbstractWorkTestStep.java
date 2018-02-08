@@ -58,7 +58,7 @@ public class AbstractWorkTestStep {
     /**
      * Checks form fields and fills them in
      */
-    public void checkAndFillNewHRProcessForm(){
+    public void checkAndFillNewHRProcessForm() throws Exception {
         NewPersonHRProcessPage newPerson = new NewPersonHRProcessPage();
         assertTrue(newPerson.isOpen(), "New Person page doesn't open correctly.");
         newPerson.checkNewHRProcessFormFields();

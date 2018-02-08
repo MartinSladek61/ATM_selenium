@@ -15,7 +15,7 @@ public class AbstractWorkTest {
     /**
      * Declares new person in WORK FLOW - Step 0
      */
-    public static void newFullTimePersonHRProcess() {
+    public static void newFullTimePersonHRProcess() throws Exception {
         AbstractWorkTestStep step = new AbstractWorkTestStep();
         step.goToHrm();
         step.goToWorkFlow();
