@@ -49,7 +49,7 @@ public class AbstractWorkTestStep {
 
     public void checkButtonsOnTop(){
         WorkflowPage workflowPage = new WorkflowPage();
-        workflowPage.cancelCreatingNewPersonTask(false); //TODO zeptat se na pozadavek kliknuti
+        workflowPage.cancelCreatingNewPersonTask(false);
     }
 
     public void checkAndFillNewHRProcessForm(){

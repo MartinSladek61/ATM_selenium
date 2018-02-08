@@ -8,15 +8,15 @@ import webtest.work.base.AbstractWorkPage;
 
 public class WorkflowPage extends AbstractWorkPage{
 
-    @FindBy(how = How.CLASS_NAME,using = "btn btn-success")
+    @FindBy(how = How.XPATH,using = "//a[@href='./wf_nova_osoba_nabor.php']")   //add ID
     private WebElement newFullTimePersonProcessButton ;
-    @FindBy(how = How.CLASS_NAME,using = "btn btn-info")
+    @FindBy(how = How.XPATH,using = "//a[@href='./wf_dpp_hpp_krok_0.php']")    //add ID
     private WebElement newFullTimePersonFromPartTimeButton;
-    @FindBy(how = How.CLASS_NAME, using = "btn btn-default")
+    @FindBy(how = How.XPATH, using = "//a[@href='./prodlouzeni_dohody.php']")   //add ID
     private WebElement contractExtensionButton;
-    @FindBy(how = How.CLASS_NAME, using = "btn btn-danger")
+    @FindBy(how = How.XPATH, using = "//a[@href='./odchod_zamestnance.php']")   //add ID
     private WebElement contractTerminationButton;
-    @FindBy(how = How.CLASS_NAME, using = "btn btn-box-tool")
+    @FindBy(how = How.XPATH, using = "//a[@href='./workflow.php']") //add ID
     private WebElement cancelTaskButton;
     //Form - description of elements
     @FindBy(how = How.NAME, using = "jmeno")
@@ -30,7 +30,7 @@ public class WorkflowPage extends AbstractWorkPage{
     @FindBy(how = How.NAME, using = "manager")
     private WebElement managerSelectComboBoxElement;
     @FindBy(how = How.NAME, using = "datum_pomeru")
-    private WebElement StartDateInputFieldElement;
+    private WebElement startDateInputFieldElement;
     @FindBy(how = How.NAME, using = "poznamka")
     private WebElement noteInputFieldElement;
 
@@ -59,7 +59,13 @@ public class WorkflowPage extends AbstractWorkPage{
     }
 
     public void checkNewHRProcessFormFields(){
-
+        isElementPresent(nameInputFieldElement);
+        isElementPresent(surnameInputFieldElement);
+        isElementPresent(emailInputFieldElement);
+        isElementPresent(phoneInputFieldElement);
+        isElementPresent(managerSelectComboBoxElement);
+        isElementPresent(startDateInputFieldElement);
+        isElementPresent(noteInputFieldElement);
     }
 
     public void fillInNewHRProcessFormFields(){
