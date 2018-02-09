@@ -17,7 +17,7 @@ public class AbstractWorkTestStep {
         assertTrue(loginPage.isOpen(), "Login page doesn't open correctly.");
         loginPage.login();
         HomePage homePage = new HomePage();
-        assertTrue(homePage.isUserLogged(), "User isn't logged correctly.");
+        assertTrue(homePage.isOpen(), "User isn't logged correctly.");
     }
 
     /**
@@ -25,7 +25,7 @@ public class AbstractWorkTestStep {
      */
     public void goToHrm() {
         HomePage homePage = new HomePage();
-        assertTrue(homePage.isUserLogged(), "User isn't logged correctly.");
+        assertTrue(homePage.isOpen(), "User isn't logged correctly.");
         homePage.clickToHrm();
         HrmPage hrmPage = new HrmPage();
         hrmPage.switchToTabs(DriverSettings.getDriver(), 1);

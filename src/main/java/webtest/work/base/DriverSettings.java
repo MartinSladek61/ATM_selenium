@@ -1,13 +1,18 @@
 package webtest.work.base;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
+import org.apache.commons.io.FileUtils;
+
+import static org.testng.Assert.assertFalse;
 
 public class DriverSettings {
     private static WebDriver driver;
@@ -81,4 +86,14 @@ public class DriverSettings {
      * @return WebElement
      */
     WebElement findElement(By by) { return getDriver().findElement(by);}
+
+    public static void takeScreenshot() {
+        try{
+            File snimek = ((TakesScreenshot)DriverSettings.getDriver()).getScreenshotAs(OutputType.FILE);
+            String nazevSouboru = "Snimek " + new SimpleDateFormat("dd-MM-yyyy hh-mm-ss").format(new Date());
+            FileUtils.copyFile(snimek, new File(".\\src\\Screenshots\\" + nazevSouboru +".png" ));
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

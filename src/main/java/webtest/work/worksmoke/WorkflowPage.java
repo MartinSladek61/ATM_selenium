@@ -1,10 +1,12 @@
 package webtest.work.worksmoke;
 
 
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import webtest.work.base.AbstractWorkPage;
+import webtest.work.base.DriverSettings;
 
 public class WorkflowPage extends AbstractWorkPage{
 
@@ -28,7 +30,11 @@ public class WorkflowPage extends AbstractWorkPage{
      * @return boolean value
      */
     @Override
-    public boolean isOpen(){ return isElementPresent(newFullTimePersonProcessButton); }
+    public boolean isOpen(){
+        boolean statement = isElementPresent(newFullTimePersonProcessButton);
+        if(!statement){ DriverSettings.takeScreenshot(); }
+        return statement;
+    }
 
     public void createNewFullTimePersonHRProcess(){
         isElementPresent(newFullTimePersonProcessButton);

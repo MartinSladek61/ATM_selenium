@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import webtest.work.base.AbstractWorkPage;
+import webtest.work.base.DriverSettings;
 import webtest.work.base.PropertiesData;
 
 public class LoginPage extends AbstractWorkPage {
@@ -26,7 +27,10 @@ public class LoginPage extends AbstractWorkPage {
      * @return boolean value
      */
     @Override
-    public boolean isOpen() { return isElementPresent(nicknameFieldElement); }
+    public boolean isOpen() {
+        boolean statement = isElementPresent(nicknameFieldElement);
+        if(!statement){ DriverSettings.takeScreenshot(); }
+        return statement;}
 
     /**
      * Gives login data to the form, clicks on button and performs login

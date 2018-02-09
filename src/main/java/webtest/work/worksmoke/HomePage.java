@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import webtest.work.base.AbstractWorkPage;
+import webtest.work.base.DriverSettings;
 
 public class HomePage extends AbstractWorkPage{
 
@@ -25,6 +26,17 @@ public class HomePage extends AbstractWorkPage{
     }
 
     /**
+     * Overrides isOpen - checking if the page is loaded
+     * @return boolean value
+     */
+    @Override
+    public boolean isOpen(){
+        boolean statement = isElementPresent(mainHeaderLabel);
+        if(!statement){ DriverSettings.takeScreenshot(); }
+        return statement;
+    }
+
+    /**
      * Logouts from WORK's homepage
      */
     public void logoutFromHomePage(){
@@ -37,10 +49,4 @@ public class HomePage extends AbstractWorkPage{
     public void clickToHrm () {
         performClick(workHrmFastAccesButton);
     }
-
-    /**
-     * Checks if is user logged by checking given element
-     * @return boolean value
-     */
-    public boolean isUserLogged() { return isElementPresent(mainHeaderLabel); }
 }

@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import webtest.work.base.AbstractWorkPage;
+import webtest.work.base.DriverSettings;
 
 public class HrmPage extends AbstractWorkPage{
 
@@ -29,7 +30,11 @@ public class HrmPage extends AbstractWorkPage{
      * @return boolean value
      */
     @Override
-    public boolean isOpen() { return isElementPresent(mainHeaderLabel);}
+    public boolean isOpen() {
+        boolean statement = isElementPresent(mainHeaderLabel);
+        if(!statement){ DriverSettings.takeScreenshot(); }
+        return statement;
+    }
 
     /**
      * Goes to Work Flow page

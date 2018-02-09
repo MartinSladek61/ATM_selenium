@@ -33,7 +33,11 @@ public class NewPersonHRProcessPage extends AbstractWorkPage{
      * @return boolean value
      */
     @Override
-    public boolean isOpen(){ return isElementPresent(nameInputFieldElement); }
+    public boolean isOpen(){
+        boolean statement = isElementPresent(nameInputFieldElement);
+        if(!statement){ DriverSettings.takeScreenshot(); }
+        return statement;
+    }
 
     /**
      * Checks form field's existence
@@ -88,7 +92,11 @@ public class NewPersonHRProcessPage extends AbstractWorkPage{
             OnboarActCheckbox.click();
             Select owner = new Select(OnboarActOwnerSelectbox);
             owner.selectByValue(idValues[rand.nextInt(idValues.length)]);
-            setText(OnboardActDateInput, "0" + i + ".10.2018");
+            if(i < 10) {
+                setText(OnboardActDateInput, "0" + String.valueOf(i) + ".10.2019");
+            } else {
+                setText(OnboardActDateInput, String.valueOf(i) + ".10.2019");
+            }
             setText(OnboardActNoteInput, "Poznámka_" + i + i + i + "/*-+");
         }
     }
