@@ -1,14 +1,15 @@
 package webtest.work.worksmoke;
 
-import com.sun.xml.internal.bind.v2.model.core.ID;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 import webtest.work.base.AbstractWorkPage;
 import webtest.work.base.DriverSettings;
 import webtest.work.base.UploadDataFromExcel;
+
+import java.util.List;
 import java.util.Random;
 
 public class NewPersonHRProcessPage extends AbstractWorkPage{
@@ -22,6 +23,11 @@ public class NewPersonHRProcessPage extends AbstractWorkPage{
     @FindBy(how = How.NAME, using = "poznamka") private WebElement noteInputFieldElement;
     @FindBy(how = How.XPATH, using = "//a[@href='./workflow.php']") private WebElement cancelTaskButton; //add ID
     @FindBy(how = How.XPATH, using = "//input[@type='submit']") private WebElement submitButtonElement; //add ID
+    @FindBys({@FindBy(xpath = "//select[@class='form-control']"), @FindBy(xpath = "//select[@required='true']")}) private List<WebElement> ownerList;
+    @FindBy(how = How.ID, using = "termin") private List<WebElement> dateList;
+    @FindBy(how = How.ID, using = "poznamka") private List<WebElement> noteList;
+    @FindBy(xpath = "//input[@type='checkbox']") private List<WebElement> yes_noList;
+
 
     /**
      * Constructor - overrides by super
@@ -79,7 +85,32 @@ public class NewPersonHRProcessPage extends AbstractWorkPage{
         String[] idValues = {"1", "35", "1177332167", "15", "36"};
         Random rand = new Random();
 
-        for(int i = 1; i < 15; i++){
+            for(WebElement element : yes_noList) {
+                if(isElementPresent(element)){ element.click(); }
+
+            }
+
+            for(WebElement element1 : ownerList){
+                if(isElementPresent(element1)){
+                    Select owner = new Select(element1);
+                    owner.selectByValue(idValues[rand.nextInt(idValues.length)]);
+                }
+            }
+
+            for(WebElement element2 : dateList){
+                if(dateList.indexOf(element2) < 10) {
+                    setText(element2, "0" + dateList.indexOf(element2) + ".10.2019");
+                } else {
+                    setText(element2, dateList.indexOf(element2) + ".10.2019");
+                }
+            }
+
+          for(WebElement element3 : noteList){
+              setText(element3, "Poznámka_" + noteList.indexOf(element3) + "_/*-+");
+          }
+
+            /*
+            for(int i = 1; i < 15; i++){
             WebElement OnboarActCheckbox = DriverSettings.getDriver().findElement(By.id("ano_ne_" + i));
             isElementPresent(OnboarActCheckbox);
             WebElement OnboarActOwnerSelectbox = DriverSettings.getDriver().findElement(By.id("vlastnik_" + i));
@@ -99,6 +130,7 @@ public class NewPersonHRProcessPage extends AbstractWorkPage{
             }
             setText(OnboardActNoteInput, "Poznámka_" + i + i + i + "/*-+");
         }
+        */
     }
 
     public void submitFormNewPersonTask(){
