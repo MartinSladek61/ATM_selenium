@@ -23,11 +23,11 @@ public class NewPersonHRProcessPage extends AbstractWorkPage{
     @FindBy(how = How.NAME, using = "poznamka") private WebElement noteInputFieldElement;
     @FindBy(how = How.XPATH, using = "//a[@href='./workflow.php']") private WebElement cancelTaskButton; //add ID
     @FindBy(how = How.XPATH, using = "//input[@type='submit']") private WebElement submitButtonElement; //add ID
-    @FindBys({@FindBy(xpath = "//select[@class='form-control']"), @FindBy(xpath = "//select[@required='true']")}) private List<WebElement> ownerList;
-    @FindBy(how = How.ID, using = "termin") private List<WebElement> dateList;
-    @FindBy(how = How.ID, using = "poznamka") private List<WebElement> noteList;
+    /*Dodelat classy jinak se z toho zblaznim*/
     @FindBy(xpath = "//input[@type='checkbox']") private List<WebElement> yes_noList;
-
+    @FindBy(xpath = "//select[@required='true']") private List<WebElement> ownerList;
+    @FindBy(xpath = "//input[@type='date']") private List<WebElement> dateList;
+    @FindBy(xpath = "//input[@placeholder='Poznámka']") private List<WebElement> noteList;
 
     /**
      * Constructor - overrides by super
@@ -83,8 +83,6 @@ public class NewPersonHRProcessPage extends AbstractWorkPage{
     public void setOnboardActivities(){
 
         String[] idValues = {"1", "35", "1177332167", "15", "36"};
-        Random rand = new Random();
-
             for(WebElement element : yes_noList) {
                 if(isElementPresent(element)){ element.click(); }
 
@@ -93,6 +91,7 @@ public class NewPersonHRProcessPage extends AbstractWorkPage{
             for(WebElement element1 : ownerList){
                 if(isElementPresent(element1)){
                     Select owner = new Select(element1);
+                    Random rand = new Random();
                     owner.selectByValue(idValues[rand.nextInt(idValues.length)]);
                 }
             }

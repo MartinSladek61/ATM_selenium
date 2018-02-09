@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd52d865-a7c1-434a-8391-0841a0aee3e8" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/NewCZ_HPPHRProcessPage.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/HrmPage.java" afterPath="$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/HrmPage.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/NewPersonHRProcessPage.java" afterPath="$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/NewPersonHRProcessPage.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -56,7 +54,7 @@
       <file leaf-file-name="HomePage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/HomePage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
+            <state relative-caret-position="663">
               <caret line="50" column="5" lean-forward="false" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
               <folding />
             </state>
@@ -78,7 +76,7 @@
       <file leaf-file-name="LoginPage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/LoginPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
+            <state relative-caret-position="391">
               <caret line="29" column="29" lean-forward="false" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
               <folding />
             </state>
@@ -88,8 +86,8 @@
       <file leaf-file-name="WorkflowPage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/WorkflowPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="25" column="37" lean-forward="true" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+            <state relative-caret-position="340">
+              <caret line="25" column="37" lean-forward="false" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -100,12 +98,12 @@
       <file leaf-file-name="NewPersonHRProcessPage.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/NewPersonHRProcessPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+            <state relative-caret-position="306">
+              <caret line="25" column="45" lean-forward="false" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6051#6052#0" expanded="true" />
-                <element signature="e#6100#6101#0" expanded="true" />
+                <element signature="e#6056#6057#0" expanded="true" />
+                <element signature="e#6105#6106#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -114,7 +112,7 @@
       <file leaf-file-name="NewCZ_HPPHRProcessPage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/NewCZ_HPPHRProcessPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
+            <state relative-caret-position="425">
               <caret line="29" column="56" lean-forward="false" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -203,9 +201,9 @@
     </navigator>
     <panes>
       <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -714,39 +712,46 @@
       <option name="project" value="LOCAL" />
       <updated>1518179526205</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="MS:">
+      <created>1518189356368</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1518189356368</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <option name="trackContextForNewChangelist" value="true" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="WorkflowNewPersonTest_ISW_364 - 2018.02.09 at 14h 46m 15s.xml">
-      <configuration name="WorkflowNewPersonTest.ISW_364" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="WorkflowNewPersonTest_ISW_364 - 2018.02.09 at 14h 50m 40s.xml">
-      <configuration name="WorkflowNewPersonTest.ISW_364" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="WorkflowNewPersonTest_ISW_364 - 2018.02.09 at 15h 10m 04s.xml">
-      <configuration name="WorkflowNewPersonTest.ISW_364" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="WorkflowNewPersonTest_ISW_364 - 2018.02.09 at 15h 28m 41s.xml">
-      <configuration name="WorkflowNewPersonTest.ISW_364" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="WorkflowNewPersonTest_ISW_364 - 2018.02.09 at 15h 43m 27s.xml">
-      <configuration name="WorkflowNewPersonTest.ISW_364" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="WorkflowNewPersonTest_ISW_364 - 2018.02.09 at 15h 45m 22s.xml">
-      <configuration name="WorkflowNewPersonTest.ISW_364" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="WorkflowNewPersonTest_ISW_364 - 2018.02.09 at 15h 46m 44s.xml">
-      <configuration name="WorkflowNewPersonTest.ISW_364" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="WorkflowNewPersonTest_ISW_364 - 2018.02.09 at 16h 01m 45s.xml">
-      <configuration name="WorkflowNewPersonTest.ISW_364" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="WorkflowNewPersonTest_ISW_364 - 2018.02.09 at 16h 13m 52s.xml">
       <configuration name="WorkflowNewPersonTest.ISW_364" configurationId="TestNG" />
     </history-entry>
     <history-entry file="WorkflowNewPersonTest_ISW_364 - 2018.02.09 at 16h 15m 39s.xml">
+      <configuration name="WorkflowNewPersonTest.ISW_364" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="WorkflowNewPersonTest_ISW_364 - 2018.02.09 at 16h 20m 58s.xml">
+      <configuration name="WorkflowNewPersonTest.ISW_364" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="WorkflowNewPersonTest_ISW_364 - 2018.02.09 at 16h 21m 52s.xml">
+      <configuration name="WorkflowNewPersonTest.ISW_364" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="WorkflowNewPersonTest_ISW_364 - 2018.02.09 at 16h 23m 04s.xml">
+      <configuration name="WorkflowNewPersonTest.ISW_364" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="WorkflowNewPersonTest_ISW_364 - 2018.02.09 at 16h 26m 12s.xml">
+      <configuration name="WorkflowNewPersonTest.ISW_364" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="WorkflowNewPersonTest_ISW_364 - 2018.02.09 at 16h 34m 35s.xml">
+      <configuration name="WorkflowNewPersonTest.ISW_364" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="WorkflowNewPersonTest_ISW_364 - 2018.02.09 at 16h 36m 08s.xml">
+      <configuration name="WorkflowNewPersonTest.ISW_364" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="WorkflowNewPersonTest_ISW_364 - 2018.02.09 at 16h 37m 51s.xml">
+      <configuration name="WorkflowNewPersonTest.ISW_364" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="WorkflowNewPersonTest_ISW_364 - 2018.02.09 at 16h 39m 51s.xml">
       <configuration name="WorkflowNewPersonTest.ISW_364" configurationId="TestNG" />
     </history-entry>
   </component>
@@ -761,6 +766,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25347593" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -770,17 +776,17 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2812834" sideWeight="0.20788912" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23208556" sideWeight="0.79211086" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23208556" sideWeight="0.79211086" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32834226" sideWeight="0.65245205" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290398" sideWeight="0.49570355" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23827292" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24093817" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2812834" sideWeight="0.6745435" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4673797" sideWeight="0.6745435" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -859,20 +865,21 @@
     <MESSAGE value="MS: pridani excelu" />
     <MESSAGE value="MS: dodelani Onboard Activities a zalozeni nove osoby - Konce Kroku 0" />
     <MESSAGE value="MS: screenshotz!" />
-    <option name="LAST_COMMIT_MESSAGE" value="MS: screenshotz!" />
+    <MESSAGE value="MS:" />
+    <option name="LAST_COMMIT_MESSAGE" value="MS:" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/webtest/work/base/step/AbstractWorkTestStep.java</url>
-          <line>65</line>
+          <url>file://$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/NewPersonHRProcessPage.java</url>
+          <line>90</line>
           <properties />
-          <option name="timeStamp" value="8" />
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="9" />
+      <option name="time" value="10" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1024,7 +1031,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="452" column="80" lean-forward="false" selection-start-line="452" selection-start-column="80" selection-end-line="452" selection-end-column="80" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1100,10 +1106,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="341">
           <caret line="154" column="29" lean-forward="false" selection-start-line="154" selection-start-column="18" selection-end-line="154" selection-end-column="32" />
-          <folding>
-            <element signature="e#3324#3325#0" expanded="false" />
-            <element signature="e#3366#3367#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1111,7 +1113,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-646">
           <caret line="48" column="11" lean-forward="false" selection-start-line="48" selection-start-column="11" selection-end-line="48" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1133,7 +1134,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/LoginPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
+        <state relative-caret-position="391">
           <caret line="29" column="29" lean-forward="false" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
           <folding />
         </state>
@@ -1141,7 +1142,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/HomePage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
+        <state relative-caret-position="663">
           <caret line="50" column="5" lean-forward="false" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
           <folding />
         </state>
@@ -1155,16 +1156,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screenshots/Snimek 2018-27-09 01-27-03.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screenshots/Snimek 09-29-2018 01-29-07.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screenshots/Snimek 2018-27-09 01-27-03.png" />
+    <entry file="file://$PROJECT_DIR$/src/Screenshots/Snimek 09-29-2018 01-29-07.png" />
     <entry file="file://$PROJECT_DIR$/src/Screenshots/Snimek 09-02-2018 01-30-20.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1182,8 +1175,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/WorkflowPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="25" column="37" lean-forward="true" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+        <state relative-caret-position="340">
+          <caret line="25" column="37" lean-forward="false" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1225,7 +1218,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/NewCZ_HPPHRProcessPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
+        <state relative-caret-position="425">
           <caret line="29" column="56" lean-forward="false" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1245,12 +1238,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/webtest/work/worksmoke/NewPersonHRProcessPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+        <state relative-caret-position="306">
+          <caret line="25" column="45" lean-forward="false" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6051#6052#0" expanded="true" />
-            <element signature="e#6100#6101#0" expanded="true" />
+            <element signature="e#6056#6057#0" expanded="true" />
+            <element signature="e#6105#6106#0" expanded="true" />
           </folding>
         </state>
       </provider>
