@@ -4,6 +4,8 @@ import webtest.work.base.AbstractWorkPage;
 import webtest.work.base.DriverSettings;
 import webtest.work.worksmoke.*;
 
+import java.lang.reflect.InvocationTargetException;
+
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
@@ -65,6 +67,14 @@ public class AbstractWorkTestStep {
         newPerson.fillInNewHRProcessFormFields();
         newPerson.setOnboardActivities();
         newPerson.submitFormNewPersonTask();
+    }
+
+    public void generateAndStartWF(String ClassName) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
+        Class classTemp = Class.forName(ClassName);
+        Object obj =classTemp.getConstructor().newInstance();
+
+
+
     }
 
     /**

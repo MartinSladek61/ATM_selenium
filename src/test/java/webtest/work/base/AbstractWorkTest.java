@@ -1,6 +1,7 @@
 package webtest.work.base;
 
 import webtest.work.base.step.AbstractWorkTestStep;
+import webtest.work.workHRProcesses.NewCZ_HPPHRProcessPage;
 
 public class AbstractWorkTest {
 
@@ -24,8 +25,8 @@ public class AbstractWorkTest {
         //step.logoutFromHrm();
     }
 
-    public static void newCZ_HPPProcess(){
+    public static void newCZ_HPPProcess() throws InstantiationException, IllegalAccessException, ClassNotFoundException {
         AbstractWorkTestStep step = new AbstractWorkTestStep();
-
+        step.generateAndStartWF("NewCZ_HPPHRProcessPage");
     }
 }

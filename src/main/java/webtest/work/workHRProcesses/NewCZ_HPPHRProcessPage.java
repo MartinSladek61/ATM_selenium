@@ -27,7 +27,7 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
         return statement;
     }
 
-    public void proceedToCZ_HPPProcess(){
+    public void proceedToProcess(){
         if (isElementPresent(czHppButton)) {
             performClick(czHppButton);
         }
