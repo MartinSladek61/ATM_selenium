@@ -23,4 +23,9 @@ public class AbstractWorkTest {
         step.checkAndFillNewHRProcessForm();
         //step.logoutFromHrm();
     }
+
+    public static void newCZ_HPPProcess(){
+        AbstractWorkTestStep step = new AbstractWorkTestStep();
+
+    }
 }
