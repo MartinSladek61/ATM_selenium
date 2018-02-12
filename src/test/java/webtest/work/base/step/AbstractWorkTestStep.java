@@ -43,7 +43,7 @@ public class AbstractWorkTestStep {
         hrmPage.goToWorkFlow();
         WorkflowPage workflowPage = new WorkflowPage();
         assertTrue(workflowPage.isOpen(), "Work Flow page doesn't open correctly.");
-        workflowPage.createNewFullTimePersonHRProcess();
+        workflowPage.createNewPersonHRProcess();
     }
 
     /**

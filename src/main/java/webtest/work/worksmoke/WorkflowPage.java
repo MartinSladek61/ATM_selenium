@@ -36,7 +36,10 @@ public class WorkflowPage extends AbstractWorkPage{
         return statement;
     }
 
-    public void createNewFullTimePersonHRProcess(){
+    /**
+     * Creates new HR process - Step 0
+     */
+    public void createNewPersonHRProcess(){
         isElementPresent(newFullTimePersonProcessButton);
         performClick(newFullTimePersonProcessButton);
     }

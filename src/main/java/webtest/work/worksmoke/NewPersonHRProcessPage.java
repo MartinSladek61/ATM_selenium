@@ -80,6 +80,9 @@ public class NewPersonHRProcessPage extends AbstractWorkPage{
         setText(noteInputFieldElement, note);
     }
 
+    /**
+     * Sets onboard activities
+     */
     public void setOnboardActivities(){
 
         String[] idValues = {"1", "35", "1177332167", "15", "36"};
@@ -107,35 +110,20 @@ public class NewPersonHRProcessPage extends AbstractWorkPage{
           for(WebElement element3 : noteList){
               setText(element3, "Poznámka_" + noteList.indexOf(element3) + "_/*-+");
           }
-
-            /*
-            for(int i = 1; i < 15; i++){
-            WebElement OnboarActCheckbox = DriverSettings.getDriver().findElement(By.id("ano_ne_" + i));
-            isElementPresent(OnboarActCheckbox);
-            WebElement OnboarActOwnerSelectbox = DriverSettings.getDriver().findElement(By.id("vlastnik_" + i));
-            isElementPresent(OnboarActOwnerSelectbox);
-            WebElement OnboardActDateInput = DriverSettings.getDriver().findElement(By.id("termin_" + i));
-            isElementPresent(OnboardActDateInput);
-            WebElement OnboardActNoteInput = DriverSettings.getDriver().findElement(By.id("poznamka_" + i));
-            isElementPresent(OnboardActNoteInput);
-
-            OnboarActCheckbox.click();
-            Select owner = new Select(OnboarActOwnerSelectbox);
-            owner.selectByValue(idValues[rand.nextInt(idValues.length)]);
-            if(i < 10) {
-                setText(OnboardActDateInput, "0" + String.valueOf(i) + ".10.2019");
-            } else {
-                setText(OnboardActDateInput, String.valueOf(i) + ".10.2019");
-            }
-            setText(OnboardActNoteInput, "Poznámka_" + i + i + i + "/*-+");
-        }
-        */
     }
 
+    /**
+     * Submits filled form
+     */
     public void submitFormNewPersonTask(){
         performClick(submitButtonElement);
     }
 
+    /**
+     * Checks and clicks on cancel task button
+     *
+     * @param cancel if true, cancels the task
+     */
     public void cancelCreatingNewPersonTask(boolean cancel){
         isElementPresent(cancelTaskButton);
         if(cancel){
