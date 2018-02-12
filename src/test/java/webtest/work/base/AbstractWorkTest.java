@@ -3,6 +3,8 @@ package webtest.work.base;
 import webtest.work.base.step.AbstractWorkTestStep;
 import webtest.work.workHRProcesses.NewCZ_HPPHRProcessPage;
 
+import java.lang.reflect.InvocationTargetException;
+
 public class AbstractWorkTest {
 
     /**
@@ -11,6 +13,11 @@ public class AbstractWorkTest {
     public static void login() {
         AbstractWorkTestStep step = new AbstractWorkTestStep();
         step.login();
+    }
+
+    public static void logout(){
+        AbstractWorkTestStep step = new AbstractWorkTestStep();
+        step.logoutFromHrm();
     }
 
     /**
@@ -25,8 +32,9 @@ public class AbstractWorkTest {
         //step.logoutFromHrm();
     }
 
-    public static void newCZ_HPPProcess() throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+    public static void newCZ_HPPProcess() throws Exception {
         AbstractWorkTestStep step = new AbstractWorkTestStep();
-        step.generateAndStartWF("NewCZ_HPPHRProcessPage");
+        newFullTimePersonHRProcess();
+        step.generateAndStartCzHppWf();
     }
 }

@@ -7,7 +7,7 @@ import webtest.work.base.DriverSettings;
 
 public class NewNON_EU_HPPHRProcessPage extends AbstractWorkPage {
 
-    @FindBy(xpath = "//a[@href='./wf_rozcestnik.php?akce=nastavit&typ=hpp_non_eu&wfproces=44']") private WebElement nonEuHppButton ;
+    @FindBy(xpath = "//a[contains(@href,'hpp_non_eu')]") private WebElement nonEuHppButton ;
 
     /**
      * Constructor - overrides by super

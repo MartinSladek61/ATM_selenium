@@ -7,7 +7,7 @@ import webtest.work.base.DriverSettings;
 
 public class NewCZ_DPPHRProcessPage extends AbstractWorkPage {
 
-    @FindBy(xpath = "//a[@href='./wf_rozcestnik.php?akce=nastavit&typ=dpp_cz&wfproces=44']") private WebElement czDppButon ;
+    @FindBy(xpath = "//a[contains(@href,'dpp_cz')]") private WebElement czDppButon ;
 
     /**
      * Constructor - overrides by super

@@ -1,7 +1,10 @@
 package webtest.work.base.step;
 
+import org.apache.poi.ss.formula.functions.T;
 import webtest.work.base.AbstractWorkPage;
 import webtest.work.base.DriverSettings;
+import webtest.work.workHRProcesses.NewCZ_DPPHRProcessPage;
+import webtest.work.workHRProcesses.NewCZ_HPPHRProcessPage;
 import webtest.work.worksmoke.*;
 
 import java.lang.reflect.InvocationTargetException;
@@ -69,13 +72,20 @@ public class AbstractWorkTestStep {
         newPerson.submitFormNewPersonTask();
     }
 
+    public void generateAndStartCzHppWf(){
+        NewCZ_HPPHRProcessPage processPage = new NewCZ_HPPHRProcessPage();
+        processPage.proceedToProcess();
+        assertTrue(processPage.isOpen(), "CZ HPP process page doesn't open correctly.");
+    }
+
+    /*
+    * TODO - dodelat metodu na volani predanych classPages jako argument
     public void generateAndStartWF(String ClassName) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         Class classTemp = Class.forName(ClassName);
         Object obj =classTemp.getConstructor().newInstance();
-
-
-
+        obj.
     }
+    */
 
     /**
      * Loouts from HRM page and from entire app then

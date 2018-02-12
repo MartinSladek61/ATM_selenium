@@ -18,8 +18,14 @@ public class WorkflowNewPersonTest {
     }
 
     @AfterMethod
-    //public void closeDriver() { DriverSettings.getDriver().close(); }
+    /*public void closeDriver() {
+        AbstractWorkTest.logout();
+        DriverSettings.getDriver().close();
+    }*/
 
     @Test
     public void ISW_364() throws Exception { AbstractWorkTest.newFullTimePersonHRProcess(); }
+
+    @Test
+    public void ISW_378() throws  Exception{AbstractWorkTest.newCZ_HPPProcess();}
 }

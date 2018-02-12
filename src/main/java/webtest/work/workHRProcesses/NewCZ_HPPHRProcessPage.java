@@ -8,7 +8,8 @@ import webtest.work.base.DriverSettings;
 
 public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
 
-    @FindBy(xpath = "//a[@href='./wf_rozcestnik.php?akce=nastavit&typ=hpp_cz&wfproces=44']") private WebElement czHppButton ;
+    @FindBy(xpath = "//a[contains(@href,'hpp_cz')]") private WebElement czHppButton ;
+    @FindBy(xpath = "//h1[contains(text(),'Krok 1 - Osobní dotazník/Lékařská prohlídka')]") private WebElement labelStep1;
 
     /**
      * Constructor - overrides by super
@@ -22,7 +23,7 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
 
     @Override
     public boolean isOpen(){
-        boolean statement = isElementPresent(czHppButton);  //TODO - zmena na pozdejsi stranku
+        boolean statement = isElementPresent(labelStep1);
         if(!statement){ DriverSettings.takeScreenshot(); }
         return statement;
     }
