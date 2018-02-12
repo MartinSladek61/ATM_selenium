@@ -6,10 +6,14 @@ import org.openqa.selenium.support.How;
 import webtest.work.base.AbstractWorkPage;
 import webtest.work.base.DriverSettings;
 
+import java.util.List;
+
 public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
 
     @FindBy(xpath = "//a[contains(@href,'hpp_cz')]") private WebElement czHppButton ;
     @FindBy(xpath = "//h1[contains(text(),'Krok 1 - Osobní dotazník/Lékařská prohlídka')]") private WebElement labelStep1;
+    @FindBy(className = "form-control") private List<WebElement> formGenerateQuestionnaire;
+    @FindBy(xpath = "//input[@type='submit']") private WebElement submitButton;
 
     /**
      * Constructor - overrides by super
@@ -32,5 +36,13 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
         if (isElementPresent(czHppButton)) {
             performClick(czHppButton);
         }
+    }
+
+    public void checkFormGenerateQuestionnaire(){
+        for(WebElement element : formGenerateQuestionnaire){
+            isElementPresent(element);
+            isElementEnabled(element);
+        }
+        performClick(submitButton);
     }
 }

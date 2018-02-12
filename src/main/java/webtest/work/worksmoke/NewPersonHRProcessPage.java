@@ -24,10 +24,10 @@ public class NewPersonHRProcessPage extends AbstractWorkPage{
     @FindBy(how = How.XPATH, using = "//a[@href='./workflow.php']") private WebElement cancelTaskButton; //add ID
     @FindBy(how = How.XPATH, using = "//input[@type='submit']") private WebElement submitButtonElement; //add ID
     /*Dodelat classy jinak se z toho zblaznim*/
-    @FindBy(xpath = "//input[@type='checkbox']") private List<WebElement> yes_noList;
-    @FindBy(xpath = "//select[@required='true']") private List<WebElement> ownerList;
-    @FindBy(xpath = "//input[@type='date']") private List<WebElement> dateList;
-    @FindBy(xpath = "//input[@placeholder='Poznámka']") private List<WebElement> noteList;
+    @FindBy(xpath = "//input[contains(@id,'ano_ne_')]") private List<WebElement> yes_noList;
+    @FindBy(xpath = "//select[contains(@id,'vlastnik_')]") private List<WebElement> ownerList;
+    @FindBy(xpath = "//input[contains(@id,'termin_')]") private List<WebElement> dateList;
+    @FindBy(xpath = "//input[contains(@id,'poznamka_')]") private List<WebElement> noteList;
 
     /**
      * Constructor - overrides by super
@@ -46,7 +46,7 @@ public class NewPersonHRProcessPage extends AbstractWorkPage{
     }
 
     /**
-     * Checks form field's existence
+     * Checks form field's existence    TODO-predelat na List
      */
     public void checkNewHRProcessFormFields(){
         isElementPresent(nameInputFieldElement);
@@ -59,7 +59,7 @@ public class NewPersonHRProcessPage extends AbstractWorkPage{
     }
 
     /**
-     * Fills field"s in the form
+     * Fills fields in the form
      */
     public void fillInNewHRProcessFormFields() throws Exception {
         String  name = UploadDataFromExcel.setVariablesForNewPerson("NewPerson1", 1, 0);
@@ -130,6 +130,4 @@ public class NewPersonHRProcessPage extends AbstractWorkPage{
             performClick(cancelTaskButton);
         }
     }
-
-
 }

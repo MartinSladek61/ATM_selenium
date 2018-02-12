@@ -76,6 +76,7 @@ public class AbstractWorkTestStep {
         NewCZ_HPPHRProcessPage processPage = new NewCZ_HPPHRProcessPage();
         processPage.proceedToProcess();
         assertTrue(processPage.isOpen(), "CZ HPP process page doesn't open correctly.");
+        processPage.checkFormGenerateQuestionnaire();
     }
 
     /*

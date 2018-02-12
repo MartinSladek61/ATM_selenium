@@ -73,6 +73,16 @@ public class AbstractWorkPage extends DriverSettings {
         return true;
     }
 
+    //TODO - predelat na isEditable
+    protected boolean isElementEnabled(WebElement element){
+        try {
+            element.isEnabled();
+        } catch (NoSuchElementException e){
+            return false;
+        }
+        return true;
+    }
+
     /**
      * Switching to given tab by index in web driver
      * @param driver specifies driver
