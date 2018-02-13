@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import org.testng.Assert;
 
 /**
- * Třída AbstractWorkPage slouží k definování metod společným pro všechny stránky aplikace
+ * Class AbstractWorkPage defines parent class with method used in every page classes
+ *
  */
 public class AbstractWorkPage extends DriverSettings {
 
