@@ -23,7 +23,7 @@ public class AbstractWorkTest {
     /**
      * Declares new person in WORK FLOW - Step 0
      */
-    public static void newFullTimePersonHRProcess() throws Exception {
+    public static void newPersonHRProcess() throws Exception {
         AbstractWorkTestStep step = new AbstractWorkTestStep();
         step.goToHrm();
         step.goToWorkFlow();
@@ -34,7 +34,7 @@ public class AbstractWorkTest {
 
     public static void newCZ_HPPProcess() throws Exception {
         AbstractWorkTestStep step = new AbstractWorkTestStep();
-        newFullTimePersonHRProcess();
+        newPersonHRProcess();
         step.generateAndStartCzHppWf();
     }
 }

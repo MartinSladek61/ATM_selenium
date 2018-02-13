@@ -7,6 +7,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 
+import org.testng.Assert;
+
 /**
  * Třída AbstractWorkPage slouží k definování metod společným pro všechny stránky aplikace
  */
@@ -73,14 +75,9 @@ public class AbstractWorkPage extends DriverSettings {
         return true;
     }
 
-    //TODO - predelat na isEditable
     protected boolean isElementEnabled(WebElement element){
-        try {
-            element.isEnabled();
-        } catch (NoSuchElementException e){
-            return false;
-        }
-        return true;
+        Assert.assertTrue(isElementPresent(element),"Element is not present");
+        return element.isEnabled();
     }
 
     /**

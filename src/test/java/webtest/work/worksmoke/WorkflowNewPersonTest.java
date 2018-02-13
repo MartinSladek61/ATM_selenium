@@ -24,8 +24,8 @@ public class WorkflowNewPersonTest {
     }*/
 
     @Test
-    public void ISW_364() throws Exception { AbstractWorkTest.newFullTimePersonHRProcess(); }
+    public void ISW_364() throws Exception { AbstractWorkTest.newPersonHRProcess(); }
 
     @Test
-    public void ISW_378() throws  Exception{AbstractWorkTest.newCZ_HPPProcess();}
+    public void ISW_378() throws  Exception{ AbstractWorkTest.newCZ_HPPProcess(); }
 }

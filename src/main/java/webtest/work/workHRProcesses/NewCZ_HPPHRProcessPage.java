@@ -6,6 +6,8 @@ import org.openqa.selenium.support.How;
 import webtest.work.base.AbstractWorkPage;
 import webtest.work.base.DriverSettings;
 
+import org.testng.Assert;
+
 import java.util.List;
 
 public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
@@ -33,14 +35,13 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
     }
 
     public void proceedToProcess(){
-        if (isElementPresent(czHppButton)) {
-            performClick(czHppButton);
-        }
+        Assert.assertTrue(isElementPresent(czHppButton), "The czHppButton is not displayed.");
+        performClick(czHppButton);
     }
 
+    //TODO - dodelat
     public void checkFormGenerateQuestionnaire(){
         for(WebElement element : formGenerateQuestionnaire){
-            isElementPresent(element);
             isElementEnabled(element);
         }
         performClick(submitButton);

@@ -8,11 +8,14 @@ import webtest.work.workHRProcesses.NewCZ_HPPHRProcessPage;
 import webtest.work.worksmoke.*;
 
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class AbstractWorkTestStep {
+
+    private Method testMethod;
 
     /**
      * Performs login
@@ -79,14 +82,16 @@ public class AbstractWorkTestStep {
         processPage.checkFormGenerateQuestionnaire();
     }
 
-    /*
-    * TODO - dodelat metodu na volani predanych classPages jako argument
+
+
+    //TODO - dodelat metodu na volani predanych classPages jako argument
     public void generateAndStartWF(String ClassName) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         Class classTemp = Class.forName(ClassName);
-        Object obj =classTemp.getConstructor().newInstance();
-        obj.
+        Object obj = classTemp.getConstructor().newInstance();
+        testMethod.invoke(obj).getClass().getMethod("proceedToProcess");
     }
-    */
+
+
 
     /**
      * Loouts from HRM page and from entire app then
