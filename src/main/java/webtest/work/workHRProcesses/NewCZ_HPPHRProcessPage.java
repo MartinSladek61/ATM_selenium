@@ -7,6 +7,7 @@ import webtest.work.base.AbstractWorkPage;
 import webtest.work.base.DriverSettings;
 
 import org.testng.Assert;
+import webtest.work.worksmoke.NewPersonHRProcessPage;
 
 import java.util.List;
 
