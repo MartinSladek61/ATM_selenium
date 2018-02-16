@@ -17,6 +17,8 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
     @FindBy(className = "form-control") private List<WebElement> formGenerateQuestionnaire;
     @FindBy(xpath = "//input[@type='submit']") private WebElement submitButton;
 
+
+
     /**
      * Constructor - overrides by super
      */

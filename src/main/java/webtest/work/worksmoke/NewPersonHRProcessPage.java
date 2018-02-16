@@ -21,6 +21,8 @@ public class NewPersonHRProcessPage extends AbstractWorkPage{
     @FindBy(how = How.NAME, using = "manager") private WebElement managerSelectComboBoxElement;
     @FindBy(how = How.NAME, using = "datum_pomeru") private WebElement startDateInputFieldElement;
     @FindBy(how = How.NAME, using = "poznamka") private WebElement noteInputFieldElement;
+
+
     @FindBy(how = How.XPATH, using = "//a[@href='./workflow.php']") private WebElement cancelTaskButton; //add ID
     @FindBy(how = How.XPATH, using = "//input[@type='submit']") private WebElement submitButtonElement; //add ID
     /*Dodelat classy jinak se z toho zblaznim*/
@@ -28,6 +30,8 @@ public class NewPersonHRProcessPage extends AbstractWorkPage{
     @FindBy(xpath = "//select[contains(@id,'vlastnik_')]") private List<WebElement> ownerList;
     @FindBy(xpath = "//input[contains(@id,'termin_')]") private List<WebElement> dateList;
     @FindBy(xpath = "//input[contains(@id,'poznamka_')]") private List<WebElement> noteList;
+
+    private WebElement[] elementList = {nameInputFieldElement, surnameInputFieldElement, emailInputFieldElement, phoneInputFieldElement, managerSelectComboBoxElement, startDateInputFieldElement, noteInputFieldElement};
 
     /**
      * Constructor - overrides by super
@@ -46,38 +50,27 @@ public class NewPersonHRProcessPage extends AbstractWorkPage{
     }
 
     /**
-     * Checks form field's existence    TODO-predelat na List
+     * Checks form field's existence
      */
     public void checkNewHRProcessFormFields(){
-        isElementPresent(nameInputFieldElement);
-        isElementPresent(surnameInputFieldElement);
-        isElementPresent(emailInputFieldElement);
-        isElementPresent(phoneInputFieldElement);
-        isElementPresent(managerSelectComboBoxElement);
-        isElementPresent(startDateInputFieldElement);
-        isElementPresent(noteInputFieldElement);
+        for(WebElement element : elementList){
+            isElementEnabled(element);
+        }
     }
 
     /**
      * Fills fields in the form
      */
     public void fillInNewHRProcessFormFields() throws Exception {
-        String  name = UploadDataFromExcel.setVariablesForNewPerson("NewPerson1", 1, 0);
-        String  surname = UploadDataFromExcel.setVariablesForNewPerson("NewPerson1", 1, 1);
-        String  email = UploadDataFromExcel.setVariablesForNewPerson("NewPerson1", 1, 2);
-        String  phone = UploadDataFromExcel.setVariablesForNewPerson("NewPerson1", 1, 3);
-        String  manager = UploadDataFromExcel.setVariablesForNewPerson("NewPerson1", 1, 4);
-        String  startDate = UploadDataFromExcel.setVariablesForNewPerson("NewPerson1", 1, 5);
-        String  note = UploadDataFromExcel.setVariablesForNewPerson("NewPerson1", 1, 6);
-
-        setText(nameInputFieldElement, name);
-        setText(surnameInputFieldElement, surname);
-        setText(emailInputFieldElement, email);
-        setText(phoneInputFieldElement, phone);
-        Select lang = new Select(managerSelectComboBoxElement);
-        lang.selectByValue(manager);
-        setText(startDateInputFieldElement, startDate);
-        setText(noteInputFieldElement, note);
+        for(int i = 0; i < elementList.length; i++){
+            String s = UploadDataFromExcel.setVariablesForNewPerson("NewPerson1", 1, i);
+            if(UploadDataFromExcel.setVariablesForNewPerson("NewPerson1", 0, i).equals("Manažer")){
+                Select lang = new Select(managerSelectComboBoxElement);
+                lang.selectByValue(s);
+            } else {
+                setText(elementList[i], s);
+            }
+        }
     }
 
     /**
