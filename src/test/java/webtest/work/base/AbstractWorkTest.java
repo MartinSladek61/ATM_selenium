@@ -35,6 +35,7 @@ public class AbstractWorkTest {
     public static void newCZ_HPPProcess() throws Exception {
         AbstractWorkTestStep step = new AbstractWorkTestStep();
         newPersonHRProcess();
-        step.generateAndStartCzHppWf();
+        //step.generateAndStartCzHppWf();
+        step.generateAndStartWF("NewCZ_HPPHRProcessPage");
     }
 }
