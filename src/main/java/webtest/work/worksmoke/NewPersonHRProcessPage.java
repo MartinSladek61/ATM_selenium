@@ -109,6 +109,7 @@ public class NewPersonHRProcessPage extends AbstractWorkPage{
      * Submits filled form
      */
     public void submitFormNewPersonTask(){
+        isElementEnabled(submitButtonElement);
         performClick(submitButtonElement);
     }
 
@@ -118,7 +119,7 @@ public class NewPersonHRProcessPage extends AbstractWorkPage{
      * @param cancel if true, cancels the task
      */
     public void cancelCreatingNewPersonTask(boolean cancel){
-        isElementPresent(cancelTaskButton);
+        isElementEnabled(cancelTaskButton);
         if(cancel){
             performClick(cancelTaskButton);
         }
