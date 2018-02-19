@@ -60,7 +60,7 @@ public class AbstractWorkTestStep {
     public void checkButtonsOnTop(){
         NewPersonHRProcessPage newPerson = new NewPersonHRProcessPage();
         assertTrue(newPerson.isOpen(), "New Person page doesn't open correctly.");
-        newPerson.cancelCreatingNewPersonTask(false);
+        newPerson.cancelCreatingTask(false);
     }
 
     /**
@@ -80,6 +80,9 @@ public class AbstractWorkTestStep {
         processPage.proceedToProcess();
         assertTrue(processPage.isOpen(), "CZ HPP process page doesn't open correctly.");
         processPage.checkFormGenerateQuestionnaire();
+        processPage.proceedInProcessStep1();
+        processPage.cancelCreatingTask(false);
+        processPage.collapseTaskButton(false);
     }
 
 

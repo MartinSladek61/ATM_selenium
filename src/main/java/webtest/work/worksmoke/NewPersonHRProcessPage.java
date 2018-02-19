@@ -22,9 +22,8 @@ public class NewPersonHRProcessPage extends AbstractWorkPage{
     @FindBy(how = How.NAME, using = "datum_pomeru") private WebElement startDateInputFieldElement;
     @FindBy(how = How.NAME, using = "poznamka") private WebElement noteInputFieldElement;
 
-
-    @FindBy(how = How.XPATH, using = "//a[@href='./workflow.php']") private WebElement cancelTaskButton; //add ID
     @FindBy(how = How.XPATH, using = "//input[@type='submit']") private WebElement submitButtonElement; //add ID
+
     /*Dodelat classy jinak se z toho zblaznim*/
     @FindBy(xpath = "//input[contains(@id,'ano_ne_')]") private List<WebElement> yes_noList;
     @FindBy(xpath = "//select[contains(@id,'vlastnik_')]") private List<WebElement> ownerList;
@@ -111,17 +110,5 @@ public class NewPersonHRProcessPage extends AbstractWorkPage{
     public void submitFormNewPersonTask(){
         isElementEnabled(submitButtonElement);
         performClick(submitButtonElement);
-    }
-
-    /**
-     * Checks and clicks on cancel task button
-     *
-     * @param cancel if true, cancels the task
-     */
-    public void cancelCreatingNewPersonTask(boolean cancel){
-        isElementEnabled(cancelTaskButton);
-        if(cancel){
-            performClick(cancelTaskButton);
-        }
     }
 }

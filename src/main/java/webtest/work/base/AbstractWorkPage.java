@@ -1,6 +1,8 @@
 package webtest.work.base;
 
+import com.sun.istack.internal.NotNull;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,6 +17,9 @@ import org.testng.Assert;
  */
 public class AbstractWorkPage extends DriverSettings {
 
+    @FindBy(xpath = "//a[@href='./workflow.php']") private WebElement cancelTaskButton; //add ID
+    @FindBy(xpath = "//button[contains(@data-widget,'collapse')]") private WebElement collapseTaskButton; //add ID
+
     /**
      * Constructor; inits all WebElements - is overriden lately
      */
@@ -28,33 +33,7 @@ public class AbstractWorkPage extends DriverSettings {
      */
     public boolean isOpen(){ return true; }
 
-    /**
-     * Finds element by given Xpath
-     * @param xpath To the element
-     * @return WebElement
-     */
-    public WebElement findElementByXpath(String xpath) { return findElement(By.xpath(xpath)); }
 
-    /**
-     * Finds element by given id
-     * @param id To the Element
-     * @return WebElement
-     */
-    public WebElement findElementById(String id) { return findElement(By.id(id)); }
-
-    /**
-     * Finds element by given className
-     * @param className To the Element
-     * @return WebElement
-     */
-    public WebElement findElementByClassName(String className) { return findElement(By.className(className)); }
-
-    /**
-     * Finds element by given name
-     * @param name To the Elelement
-     * @return WebElement
-     */
-    public WebElement findElementByName(String name) { return findElement(By.name(name));}
 
     /**
      * Performs click on given element
@@ -96,7 +75,7 @@ public class AbstractWorkPage extends DriverSettings {
      * @param driver specifies driver
      * @param tabIndex specifies tab index
      */
-    public static void closeTab(WebDriver driver, int tabIndex){
+    public static void closeTab(@NotNull WebDriver driver, int tabIndex){
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(tabIndex));
         driver.close();
@@ -135,4 +114,60 @@ public class AbstractWorkPage extends DriverSettings {
             performClick(logoutButton);
         }
     }
+
+    /**
+     * Checks and clicks on cancel task button if needed
+     *
+     * @param cancel if true, cancels the task
+     */
+    public void cancelCreatingTask(boolean cancel){
+        isElementEnabled(cancelTaskButton);
+        if(cancel){
+            performClick(cancelTaskButton);
+        }
+    }
+
+    /**
+     *
+     * Checks and clicks on collapse task button if needed
+     *
+     * @param collapse if true, collapses task
+     */
+    public void collapseTaskButton(boolean collapse){
+        isElementEnabled(collapseTaskButton);
+        if(collapse){
+            performClick(collapseTaskButton);
+        }
+    }
+
+
+
+
+    /**
+     * Finds element by given Xpath
+     * @param xpath To the element
+     * @return WebElement
+     */
+    public WebElement findElementByXpath(String xpath) { return findElement(By.xpath(xpath)); }
+
+    /**
+     * Finds element by given id
+     * @param id To the Element
+     * @return WebElement
+     */
+    public WebElement findElementById(String id) { return findElement(By.id(id)); }
+
+    /**
+     * Finds element by given className
+     * @param className To the Element
+     * @return WebElement
+     */
+    public WebElement findElementByClassName(String className) { return findElement(By.className(className)); }
+
+    /**
+     * Finds element by given name
+     * @param name To the Elelement
+     * @return WebElement
+     */
+    public WebElement findElementByName(String name) { return findElement(By.name(name));}
 }
