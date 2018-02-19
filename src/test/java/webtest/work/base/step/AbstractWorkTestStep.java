@@ -75,14 +75,20 @@ public class AbstractWorkTestStep {
         newPerson.submitFormNewPersonTask();
     }
 
-    public void generateAndStartCzHppWf(){
+    public void generateAndStartCzHppWf() throws Exception {
         NewCZ_HPPHRProcessPage processPage = new NewCZ_HPPHRProcessPage();
         processPage.proceedToProcess();
         assertTrue(processPage.isOpen(), "CZ HPP process page doesn't open correctly.");
         processPage.checkFormGenerateQuestionnaire();
         processPage.proceedInProcessStep1();
+
+    }
+
+    public void checkAndFillPersonalAndResidencyDataCzHpp() throws Exception {
+        NewCZ_HPPHRProcessPage processPage = new NewCZ_HPPHRProcessPage();
         processPage.cancelCreatingTask(false);
         processPage.collapseTaskButton(false);
+        processPage.checkAndFillFormPersonalDataStep2();
     }
 
 

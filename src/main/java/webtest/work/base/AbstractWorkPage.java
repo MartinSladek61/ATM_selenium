@@ -1,6 +1,6 @@
 package webtest.work.base;
 
-import com.sun.istack.internal.NotNull;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -55,6 +55,15 @@ public class AbstractWorkPage extends DriverSettings {
         return true;
     }
 
+    protected boolean isAttributePresent(WebElement element, String attribute) {
+        Boolean result = false;
+        try {
+            String value = element.getAttribute(attribute);
+            if (value == null || value.isEmpty()){ result = true; }
+        } catch (Exception e) {}
+        return result;
+    }
+
     protected boolean isElementEnabled(WebElement element){
         Assert.assertTrue(isElementPresent(element),"Element is not present");
         return element.isEnabled();
@@ -75,7 +84,7 @@ public class AbstractWorkPage extends DriverSettings {
      * @param driver specifies driver
      * @param tabIndex specifies tab index
      */
-    public static void closeTab(@NotNull WebDriver driver, int tabIndex){
+    public static void closeTab(WebDriver driver, int tabIndex){
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(tabIndex));
         driver.close();
