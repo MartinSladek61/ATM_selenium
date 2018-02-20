@@ -1,9 +1,6 @@
 package webtest.work.base;
 
 import webtest.work.base.step.AbstractWorkTestStep;
-import webtest.work.workHRProcesses.NewCZ_HPPHRProcessPage;
-
-import java.lang.reflect.InvocationTargetException;
 
 public class AbstractWorkTest {
 
@@ -37,6 +34,7 @@ public class AbstractWorkTest {
         newPersonHRProcess();
         step.generateAndStartCzHppWf();
         //step.generateAndStartWF("NewCZ_HPPHRProcessPage");
-        step.checkAndFillPersonalAndResidencyDataCzHpp();
+        step.checkAndFillPersonalAndResidencyDataCzHppStep2();
+        step.checkAndFillWorkCzHppStep3();
     }
 }

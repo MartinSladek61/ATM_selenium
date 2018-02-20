@@ -19,6 +19,7 @@ public class AbstractWorkPage extends DriverSettings {
 
     @FindBy(xpath = "//a[@href='./workflow.php']") private WebElement cancelTaskButton; //add ID
     @FindBy(xpath = "//button[contains(@data-widget,'collapse')]") private WebElement collapseTaskButton; //add ID
+    @FindBy(xpath = "//a[contains(@href,'./wf_novy_zam_krok_1.php?')]") private WebElement changePreviousStepTaskButton; //add ID
 
     /**
      * Constructor; inits all WebElements - is overriden lately
@@ -146,6 +147,13 @@ public class AbstractWorkPage extends DriverSettings {
         isElementEnabled(collapseTaskButton);
         if(collapse){
             performClick(collapseTaskButton);
+        }
+    }
+
+    public void previousStepTaskButton(boolean change){
+        isElementEnabled(changePreviousStepTaskButton);
+        if(change){
+            performClick(changePreviousStepTaskButton);
         }
     }
 

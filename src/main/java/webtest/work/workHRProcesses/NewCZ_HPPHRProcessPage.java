@@ -81,7 +81,6 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
         performClick(submitButton);
     }
 
-
     public void checkAndFillFormPersonalDataStep2() throws Exception{
         WebElement[] elementList = {degreeSelectFieldStep2, nameFieldStep2, surnameFieldStep2, birthNumberFieldStep2, idNumberFieldStep2, emailFieldStep2, phoneFieldStep2};
         for(int i = 0; i < elementList.length; i++){
@@ -107,5 +106,9 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
             String s = UploadDataFromExcel.setVariablesForNewPerson("CZ_HPP", 1, i + 7);
             setText(elementList[i], s);
         }
+    }
+
+    public void checkJobTitleFormStep3(){
+        //TODO
     }
 }

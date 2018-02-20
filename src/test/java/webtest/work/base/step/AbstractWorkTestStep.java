@@ -81,15 +81,22 @@ public class AbstractWorkTestStep {
 
     }
 
-    public void checkAndFillPersonalAndResidencyDataCzHpp() throws Exception {
+    public void checkAndFillPersonalAndResidencyDataCzHppStep2() throws Exception {
         NewCZ_HPPHRProcessPage processPage = new NewCZ_HPPHRProcessPage();
         processPage.cancelCreatingTask(false);
         processPage.collapseTaskButton(false);
         processPage.checkAndFillFormPersonalDataStep2();
         processPage.checkAndFillFormResidencyDataStep2();
-        processPage.proceedToStep3();
     }
 
+    public void checkAndFillWorkCzHppStep3() throws Exception {
+        NewCZ_HPPHRProcessPage processPage = new NewCZ_HPPHRProcessPage();
+        processPage.proceedToStep3();
+        processPage.cancelCreatingTask(false);
+        processPage.collapseTaskButton(false);
+        processPage.previousStepTaskButton(true);
+        processPage.checkFormGenerateQuestionnaire();
+    }
 
 
     //TODO - dodelat metodu na volani predanych classPages jako argument
