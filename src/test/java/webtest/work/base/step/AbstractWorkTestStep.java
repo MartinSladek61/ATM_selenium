@@ -1,9 +1,6 @@
 package webtest.work.base.step;
 
-import org.apache.poi.ss.formula.functions.T;
-import webtest.work.base.AbstractWorkPage;
 import webtest.work.base.DriverSettings;
-import webtest.work.workHRProcesses.NewCZ_DPPHRProcessPage;
 import webtest.work.workHRProcesses.NewCZ_HPPHRProcessPage;
 import webtest.work.worksmoke.*;
 
@@ -80,7 +77,7 @@ public class AbstractWorkTestStep {
         processPage.proceedToProcess();
         assertTrue(processPage.isOpen(), "CZ HPP process page doesn't open correctly.");
         processPage.checkFormGenerateQuestionnaire();
-        processPage.proceedInProcessStep1();
+        processPage.proceedToStep2();
 
     }
 
@@ -89,6 +86,8 @@ public class AbstractWorkTestStep {
         processPage.cancelCreatingTask(false);
         processPage.collapseTaskButton(false);
         processPage.checkAndFillFormPersonalDataStep2();
+        processPage.checkAndFillFormResidencyDataStep2();
+        processPage.proceedToStep3();
     }
 
 

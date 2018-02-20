@@ -20,6 +20,7 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
     @FindBy(xpath = "//input[@type='submit']") private WebElement submitButton;
     @FindBy(xpath = "//a[contains(@href,'./wf_novy_zam_krok_1.')]") private WebElement proceedInProcessWF;
     @FindBy(xpath = "//h3[contains(text(),'Nový zaměstnanec - CZ občan - KROK 2')]") private WebElement newCZPersonStep2;
+    @FindBy(xpath = "//h3[contains(text(),'Nový zaměstnanec - CZ občan - KROK 3')]") private WebElement newCZPersonStep3;
 
     /* //TODO - CELY FORMULAR PREDELAR, NEJDOU UCHOPIT TEXTOVE HODNOTY!!!
     @FindBy(xpath = "//strong[contains(text(),'Tester')]") private WebElement nameFormTextField;
@@ -32,6 +33,10 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
     @FindBy(name = "cislo_op") private WebElement idNumberFieldStep2;
     @FindBy(name = "email2") private WebElement emailFieldStep2;
     @FindBy(name = "telefon") private WebElement phoneFieldStep2;
+    @FindBy(name = "ulice") private WebElement streetFieldStep2;
+    @FindBy(name = "psc") private WebElement pscFieldStep2;
+    @FindBy(name = "mesto") private WebElement cityFieldStep2;
+    @FindBy(name = "zeme") private WebElement countryFieldStep2;
 
     /**
      * Constructor - overrides by super
@@ -55,10 +60,16 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
         performClick(czHppButton);
     }
 
-    public void proceedInProcessStep1(){
+    public void proceedToStep2(){
         isElementEnabled(proceedInProcessWF);
         performClick(proceedInProcessWF);
-        isElementPresent(newCZPersonStep2);
+        Assert.assertTrue(isElementPresent(newCZPersonStep2), "Label 'Nový zaměstnanec - CZ občan - KROK 2' is not displayed");
+    }
+
+    public void proceedToStep3(){
+        isElementEnabled(submitButton);
+        performClick(submitButton);
+        Assert.assertTrue(isElementPresent(newCZPersonStep3), "Label 'Nový zaměstnanec - CZ občan - KROK 3' is not displayed");
     }
 
     //TODO - dodelat porovnani
@@ -70,11 +81,6 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
         performClick(submitButton);
     }
 
-    /*
-    public void checkFormPreview(){
-        String jmeno = nameFormTextField.getText();
-    }
-    */
 
     public void checkAndFillFormPersonalDataStep2() throws Exception{
         WebElement[] elementList = {degreeSelectFieldStep2, nameFieldStep2, surnameFieldStep2, birthNumberFieldStep2, idNumberFieldStep2, emailFieldStep2, phoneFieldStep2};
@@ -94,7 +100,12 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
         }
     }
 
-    public void checkAndFillFormResidencyDataStep2(){
-        //TODO
+    public void checkAndFillFormResidencyDataStep2() throws Exception{
+        WebElement[] elementList = {streetFieldStep2, pscFieldStep2, cityFieldStep2, countryFieldStep2};
+        for(int i = 0; i < elementList.length; i++){
+            isElementEnabled(elementList[i]);
+            String s = UploadDataFromExcel.setVariablesForNewPerson("CZ_HPP", 1, i + 7);
+            setText(elementList[i], s);
+        }
     }
 }
