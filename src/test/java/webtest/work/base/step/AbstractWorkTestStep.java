@@ -99,17 +99,14 @@ public class AbstractWorkTestStep {
     }
 
 
-    //TODO - dodelat metodu na volani predanych classPages jako argument
     public void generateAndStartWF(String ClassName) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         Class classTemp = Class.forName(ClassName);
         Object obj = classTemp.getConstructor().newInstance();
         testMethod.invoke(obj).getClass().getMethod("proceedToProcess");
     }
 
-
-
     /**
-     * Loouts from HRM page and from entire app then
+     * Logouts from HRM page and from entire app then
      */
     public void logoutFromHrm(){
         HrmPage hrmPage = new HrmPage();

@@ -38,6 +38,31 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
     @FindBy(name = "mesto") private WebElement cityFieldStep2;
     @FindBy(name = "zeme") private WebElement countryFieldStep2;
 
+    @FindBy(name = "budID") private WebElement futureIdFieldStep3;
+    @FindBy(name = "pozice") private WebElement positionFieldStep3;
+    @FindBy(name = "manager") private WebElement managerFieldStep3;
+    @FindBy(name = "smlouva") private WebElement contractFieldStep3;
+    @FindBy(name = "mzda") private WebElement wageFieldStep3;
+    @FindBy(name = "forma_mzdy") private WebElement formOfWagwFieldStep3;
+    @FindBy(name = "bank_predcisli") private WebElement bankPrefixNumberFieldStep3;
+    @FindBy(name = "bank_ucet") private WebElement bankAccountFieldStep3;
+    @FindBy(name = "banka") private WebElement bankCodeFieldStep3;
+    @FindBy(name = "dovolena") private WebElement vacationFieldStep3;
+    @FindBy(name = "dovolenaz") private WebElement vacationBalanceFieldStep3;
+    @FindBy(name = "nastup") private WebElement boardingFieldStep3;
+    @FindBy(name = "doba_neurcita") private WebElement undefinedTermFieldStep3;
+    @FindBy(name = "doba_urcita") private WebElement definedTermFieldStep3;
+    @FindBy(name = "zkusebni_doba") private WebElement testTermFieldStep3;
+    @FindBy(name = "zkusebka") private WebElement testTermNumberFieldStep3;
+    @FindBy(name = "stravenky") private WebElement mealVouchersFieldStep3;
+    @FindBy(name = "fte") private WebElement fteFieldStep3;
+
+
+
+
+
+
+
     /**
      * Constructor - overrides by super
      */

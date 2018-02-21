@@ -10,12 +10,9 @@ import webtest.work.base.PropertiesData;
 
 public class LoginPage extends AbstractWorkPage {
 
-    @FindBy(how= How.NAME, using = "login")
-    private WebElement nicknameFieldElement;
-    @FindBy(how= How.NAME, using = "heslo")
-    private WebElement passwdFieldElement;
-    @FindBy(how= How.CLASS_NAME, using = "login-buttons")
-    private WebElement loginButtonElement;
+    @FindBy(name = "login") private WebElement nicknameFieldElement;
+    @FindBy(name = "heslo") private WebElement passwdFieldElement;
+    @FindBy(name = "login-buttons") private WebElement loginButtonElement;
 
     /**
      * Constructor - overrides by super
