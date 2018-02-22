@@ -107,7 +107,7 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
             if(isAttributePresent(elementList[i], "value")){
                 String s = UploadDataFromExcel.setVariablesForNewPerson("CZ_HPP", 1, i);
                 if(UploadDataFromExcel.setVariablesForNewPerson("CZ_HPP", 0, i).equals("Titul")){
-                    Select lang = new Select(degreeSelectFieldStep2);
+                    Select lang = new Select(elementList[i]);
                     lang.selectByValue(s);
                 } else {
                     setText(elementList[i], s);
@@ -129,5 +129,7 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
 
     public void checkJobTitleFormStep3(){
         //TODO
+        Assert.assertTrue(isAttributePresent(futureIdFieldStep3, "readonly"));
+
     }
 }
