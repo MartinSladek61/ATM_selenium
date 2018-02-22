@@ -12,7 +12,7 @@ public class LoginPage extends AbstractWorkPage {
 
     @FindBy(name = "login") private WebElement nicknameFieldElement;
     @FindBy(name = "heslo") private WebElement passwdFieldElement;
-    @FindBy(name = "login-buttons") private WebElement loginButtonElement;
+    @FindBy(className = "login-buttons") private WebElement loginButtonElement;
 
     /**
      * Constructor - overrides by super
