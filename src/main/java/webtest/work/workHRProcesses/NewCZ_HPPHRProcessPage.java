@@ -43,7 +43,7 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
     @FindBy(name = "manager") private WebElement managerFieldStep3;
     @FindBy(name = "smlouva") private WebElement contractFieldStep3;
     @FindBy(name = "mzda") private WebElement wageFieldStep3;
-    @FindBy(name = "forma_mzdy") private WebElement formOfWagwFieldStep3;
+    @FindBy(name = "forma_mzdy") private WebElement formOfWageFieldStep3;
     @FindBy(name = "bank_predcisli") private WebElement bankPrefixNumberFieldStep3;
     @FindBy(name = "bank_ucet") private WebElement bankAccountFieldStep3;
     @FindBy(name = "banka") private WebElement bankCodeFieldStep3;
@@ -56,12 +56,6 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
     @FindBy(name = "zkusebka") private WebElement testTermNumberFieldStep3;
     @FindBy(name = "stravenky") private WebElement mealVouchersFieldStep3;
     @FindBy(name = "fte") private WebElement fteFieldStep3;
-
-
-
-
-
-
 
     /**
      * Constructor - overrides by super
