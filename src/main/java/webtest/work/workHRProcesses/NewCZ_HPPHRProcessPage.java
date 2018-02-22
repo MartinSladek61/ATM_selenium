@@ -128,8 +128,8 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
     }
 
     public void checkJobTitleFormStep3(){
-        //TODO
         Assert.assertTrue(isAttributePresent(futureIdFieldStep3, "readonly"));
-
+        WebElement[] selectList = {positionFieldStep3, managerFieldStep3, contractFieldStep3, formOfWageFieldStep3, undefinedTermFieldStep3, testTermFieldStep3, fteFieldStep3};
+        WebElement[] textfieldList = {wageFieldStep3, bankPrefixNumberFieldStep3, bankAccountFieldStep3, bankCodeFieldStep3, vacationFieldStep3, vacationBalanceFieldStep3, boardingFieldStep3, testTermNumberFieldStep3};
     }
 }
