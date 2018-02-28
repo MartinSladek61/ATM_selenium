@@ -157,6 +157,15 @@ public class AbstractWorkPage extends DriverSettings {
         }
     }
 
+    protected boolean compareTextFromAppWithExcelData(String textFromApp, String sheet, int row, int col) throws Exception {
+        if(textFromApp.equals(UploadDataFromExcel.setVariablesForNewPerson(sheet, row, col))){ return true; } else { return false; }
+    }
+
+    protected void scrollToElement(WebElement element){
+        ((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true)", element);
+        sleep(500);
+    }
+
 
 
 

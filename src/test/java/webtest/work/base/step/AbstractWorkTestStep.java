@@ -96,6 +96,7 @@ public class AbstractWorkTestStep {
         processPage.collapseTaskButton(false);
         processPage.previousStepTaskButton(true);
         processPage.checkFormGenerateQuestionnaire();
+        processPage.checkJobTitleFormStep3();
     }
 
 

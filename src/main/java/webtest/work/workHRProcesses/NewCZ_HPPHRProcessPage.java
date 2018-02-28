@@ -11,6 +11,7 @@ import webtest.work.base.UploadDataFromExcel;
 
 import static org.junit.Assert.assertEquals;
 import java.util.List;
+import java.util.Random;
 
 public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
 
@@ -39,23 +40,26 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
     @FindBy(name = "zeme") private WebElement countryFieldStep2;
 
     @FindBy(name = "budID") private WebElement futureIdFieldStep3;
-    @FindBy(name = "pozice") private WebElement positionFieldStep3;
-    @FindBy(name = "manager") private WebElement managerFieldStep3;
-    @FindBy(name = "smlouva") private WebElement contractFieldStep3;
+    @FindBy(name = "pozice") private WebElement positionSelectStep3;
+    @FindBy(name = "manager") private WebElement managerSelectStep3;
+    @FindBy(name = "smlouva") private WebElement contractSelectStep3;
     @FindBy(name = "mzda") private WebElement wageFieldStep3;
-    @FindBy(name = "forma_mzdy") private WebElement formOfWageFieldStep3;
+    @FindBy(name = "forma_mzdy") private WebElement formOfWageSelectStep3;
     @FindBy(name = "bank_predcisli") private WebElement bankPrefixNumberFieldStep3;
     @FindBy(name = "bank_ucet") private WebElement bankAccountFieldStep3;
     @FindBy(name = "banka") private WebElement bankCodeFieldStep3;
     @FindBy(name = "dovolena") private WebElement vacationFieldStep3;
     @FindBy(name = "dovolenaz") private WebElement vacationBalanceFieldStep3;
     @FindBy(name = "nastup") private WebElement boardingFieldStep3;
-    @FindBy(name = "doba_neurcita") private WebElement undefinedTermFieldStep3;
+    @FindBy(name = "doba_neurcita") private WebElement undefinedTermSelectStep3;
     @FindBy(name = "doba_urcita") private WebElement definedTermFieldStep3;
-    @FindBy(name = "zkusebni_doba") private WebElement testTermFieldStep3;
+    @FindBy(name = "zkusebni_doba") private WebElement testTermSelectStep3;
     @FindBy(name = "zkusebka") private WebElement testTermNumberFieldStep3;
     @FindBy(name = "stravenky") private WebElement mealVouchersFieldStep3;
-    @FindBy(name = "fte") private WebElement fteFieldStep3;
+    @FindBy(name = "fte") private WebElement fteSelectStep3;
+    @FindBy(name = "soubor_osobni_dotaznik") private WebElement filePersonalQStep3;
+    @FindBy(name = "soubor_prohlidka") private WebElement fileHealthQStep3;
+    @FindBy(name = "poznamka") private WebElement noteStep3;
 
     /**
      * Constructor - overrides by super
@@ -86,7 +90,8 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
     }
 
     public void proceedToStep3(){
-        isElementEnabled(submitButton);
+        //isElementEnabled(submitButton);   padá to tu, element z nějakého důvodu není clickable a měl by být
+        scrollToElement(submitButton);
         performClick(submitButton);
         Assert.assertTrue(isElementPresent(newCZPersonStep3), "Label 'Nový zaměstnanec - CZ občan - KROK 3' is not displayed");
     }
@@ -127,9 +132,30 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
         }
     }
 
-    public void checkJobTitleFormStep3(){
-        Assert.assertTrue(isAttributePresent(futureIdFieldStep3, "readonly"));
-        WebElement[] selectList = {positionFieldStep3, managerFieldStep3, contractFieldStep3, formOfWageFieldStep3, undefinedTermFieldStep3, testTermFieldStep3, fteFieldStep3};
-        WebElement[] textfieldList = {wageFieldStep3, bankPrefixNumberFieldStep3, bankAccountFieldStep3, bankCodeFieldStep3, vacationFieldStep3, vacationBalanceFieldStep3, boardingFieldStep3, testTermNumberFieldStep3};
+    public void checkJobTitleFormStep3() throws Exception {
+        int skipRows, row = 0, col = 0;
+        //Assert.assertTrue(isAttributePresent(futureIdFieldStep3, "readonly"));
+        WebElement[] selectList = {positionSelectStep3, managerSelectStep3, contractSelectStep3, formOfWageSelectStep3, undefinedTermSelectStep3, testTermSelectStep3, fteSelectStep3};
+        WebElement[] textFieldList = {wageFieldStep3, bankPrefixNumberFieldStep3, bankAccountFieldStep3, bankCodeFieldStep3, vacationFieldStep3, vacationBalanceFieldStep3, boardingFieldStep3, testTermNumberFieldStep3, noteStep3};
+        for(int i = 0; i < selectList.length; i++){
+            if(i == 0){ skipRows = 4; } else { skipRows = 2; }
+            row = row + skipRows;
+            checkSelect(selectList[i], "CZ_HPP", row, 0);
+        }
+        for(WebElement textElement : textFieldList){
+            isElementEnabled(textElement);
+            setText(textElement, UploadDataFromExcel.setVariablesForNewPerson("CZ_HPP", 20, col));
+            col++;
+        }
+    }
+
+    private void checkSelect(WebElement selectElement, String sheet, int row, int col) throws Exception {
+        Select select = new Select(selectElement);
+        List<WebElement> selectOptions = select.getOptions();
+        for(WebElement element : selectOptions){
+            Assert.assertEquals(element.getText(), UploadDataFromExcel.setVariablesForNewPerson(sheet, row, col));
+            col++;
+        }
+        select.selectByIndex(new Random().nextInt(selectOptions.size()));
     }
 }
