@@ -22,6 +22,9 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
     @FindBy(xpath = "//a[contains(@href,'./wf_novy_zam_krok_1.')]") private WebElement proceedInProcessWF;
     @FindBy(xpath = "//h3[contains(text(),'Nový zaměstnanec - CZ občan - KROK 2')]") private WebElement newCZPersonStep2;
     @FindBy(xpath = "//h3[contains(text(),'Nový zaměstnanec - CZ občan - KROK 3')]") private WebElement newCZPersonStep3;
+    @FindBy(xpath = "//h3[contains(text(),'Náhled a kontrola žádosti:')]") private WebElement newCZPersonFromStep3To4;
+    @FindBy(xpath = "//h3[contains(text(),'Nový zaměstnanec - CZ občan - KROK 4')]") private WebElement newCZPersonStep4;
+    @FindBy(xpath = "//a[contains(text(),'Ano, odeslat hned a pokračovat')]") private WebElement sendDocsAndContinueToStep4;
 
     /* //TODO - CELY FORMULAR PREDELAR, NEJDOU UCHOPIT TEXTOVE HODNOTY!!!
     @FindBy(xpath = "//strong[contains(text(),'Tester')]") private WebElement nameFormTextField;
@@ -90,10 +93,23 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
     }
 
     public void proceedToStep3(){
-        //isElementEnabled(submitButton);   padá to tu, element z nějakého důvodu není clickable a měl by být
         scrollToElement(submitButton);
+        isElementEnabled(submitButton);
         performClick(submitButton);
         Assert.assertTrue(isElementPresent(newCZPersonStep3), "Label 'Nový zaměstnanec - CZ občan - KROK 3' is not displayed");
+    }
+
+    public void proceedToStep4(){
+        scrollToElement(submitButton);
+        isElementEnabled(submitButton);
+        performClick(submitButton);
+        Assert.assertTrue(isElementPresent(newCZPersonFromStep3To4), "Label 'Náhled a kontrola žádosti:' is not displayed");
+        cancelCreatingTask(false);
+        collapseTaskButton(false);
+        previousStepTaskButton(false);
+        isElementEnabled(sendDocsAndContinueToStep4);
+        performClick(sendDocsAndContinueToStep4);
+        Assert.assertTrue(isElementPresent(newCZPersonStep4));
     }
 
     //TODO - dodelat porovnani
@@ -109,7 +125,7 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
         WebElement[] elementList = {degreeSelectFieldStep2, nameFieldStep2, surnameFieldStep2, birthNumberFieldStep2, idNumberFieldStep2, emailFieldStep2, phoneFieldStep2};
         for(int i = 0; i < elementList.length; i++){
             isElementEnabled(elementList[i]);
-            if(isAttributePresent(elementList[i], "value")){
+            if(!isAttributePresent(elementList[i], "value")){
                 String s = UploadDataFromExcel.setVariablesForNewPerson("CZ_HPP", 1, i);
                 if(UploadDataFromExcel.setVariablesForNewPerson("CZ_HPP", 0, i).equals("Titul")){
                     Select lang = new Select(elementList[i]);
@@ -132,20 +148,24 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
         }
     }
 
-    public void checkJobTitleFormStep3() throws Exception {
-        int skipRows, row = 0, col = 0;
-        //Assert.assertTrue(isAttributePresent(futureIdFieldStep3, "readonly"));
+    public void checkAndFillJobTitleFormStep3() throws Exception {
+        int skipRows, row = 0, col1 = 0, col2 = 0;
+        Assert.assertTrue(isAttributePresent(futureIdFieldStep3, "readonly"));
         WebElement[] selectList = {positionSelectStep3, managerSelectStep3, contractSelectStep3, formOfWageSelectStep3, undefinedTermSelectStep3, testTermSelectStep3, fteSelectStep3};
-        WebElement[] textFieldList = {wageFieldStep3, bankPrefixNumberFieldStep3, bankAccountFieldStep3, bankCodeFieldStep3, vacationFieldStep3, vacationBalanceFieldStep3, boardingFieldStep3, testTermNumberFieldStep3, noteStep3};
+        WebElement[] textFieldList = {wageFieldStep3, bankPrefixNumberFieldStep3, bankAccountFieldStep3, bankCodeFieldStep3, vacationFieldStep3, vacationBalanceFieldStep3, boardingFieldStep3, noteStep3};
         for(int i = 0; i < selectList.length; i++){
             if(i == 0){ skipRows = 4; } else { skipRows = 2; }
             row = row + skipRows;
+            isElementEnabled(selectList[i]);
             checkSelect(selectList[i], "CZ_HPP", row, 0);
+            Select select = new Select(selectList[i]);
+            select.selectByValue(UploadDataFromExcel.setVariablesForNewPerson("CZ_HPP", 23, col1));
+            col1++;
         }
         for(WebElement textElement : textFieldList){
             isElementEnabled(textElement);
-            setText(textElement, UploadDataFromExcel.setVariablesForNewPerson("CZ_HPP", 20, col));
-            col++;
+            setText(textElement, UploadDataFromExcel.setVariablesForNewPerson("CZ_HPP", 20, col2));
+            col2++;
         }
     }
 
@@ -156,6 +176,7 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
             Assert.assertEquals(element.getText(), UploadDataFromExcel.setVariablesForNewPerson(sheet, row, col));
             col++;
         }
-        select.selectByIndex(new Random().nextInt(selectOptions.size()));
     }
+
+
 }

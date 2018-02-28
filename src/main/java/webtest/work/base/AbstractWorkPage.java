@@ -4,8 +4,6 @@ package webtest.work.base;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 
@@ -19,7 +17,7 @@ public class AbstractWorkPage extends DriverSettings {
 
     @FindBy(xpath = "//a[@href='./workflow.php']") private WebElement cancelTaskButton; //add ID
     @FindBy(xpath = "//button[contains(@data-widget,'collapse')]") private WebElement collapseTaskButton; //add ID
-    @FindBy(xpath = "//a[contains(@href,'./wf_novy_zam_krok_1.php?')]") private WebElement changePreviousStepTaskButton; //add ID
+    @FindBy(xpath = "//a[contains(@href,'./wf_novy_zam_krok_')]") private WebElement changePreviousStepTaskButton; //add ID
 
     /**
      * Constructor; inits all WebElements - is overriden lately
@@ -57,17 +55,17 @@ public class AbstractWorkPage extends DriverSettings {
     }
 
     protected boolean isAttributePresent(WebElement element, String attribute) {
-        Boolean result = false;
+        Boolean result = true;
         try {
             String value = element.getAttribute(attribute);
-            if (value == null || value.isEmpty()){ result = true; }
-        } catch (Exception e) {}
+            if (value == null || value.isEmpty()){ result = false; }
+        } catch (NullPointerException e) {}
         return result;
     }
 
-    protected boolean isElementEnabled(WebElement element){
+    protected void isElementEnabled(WebElement element){
         Assert.assertTrue(isElementPresent(element),"Element is not present");
-        return element.isEnabled();
+        element.isEnabled();
     }
 
     /**
@@ -95,7 +93,7 @@ public class AbstractWorkPage extends DriverSettings {
      * Sleeps for time in given miliseconds
      * @param milis specifies miliseconds
      */
-    public void sleep(int milis) {
+    private void sleep(int milis) {
         try {
             Thread.sleep(milis);
         } catch (InterruptedException e) {
@@ -158,7 +156,7 @@ public class AbstractWorkPage extends DriverSettings {
     }
 
     protected boolean compareTextFromAppWithExcelData(String textFromApp, String sheet, int row, int col) throws Exception {
-        if(textFromApp.equals(UploadDataFromExcel.setVariablesForNewPerson(sheet, row, col))){ return true; } else { return false; }
+        return textFromApp.equals(UploadDataFromExcel.setVariablesForNewPerson(sheet, row, col));
     }
 
     protected void scrollToElement(WebElement element){
