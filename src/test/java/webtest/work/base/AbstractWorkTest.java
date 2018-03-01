@@ -36,5 +36,6 @@ public class AbstractWorkTest {
         //step.generateAndStartWF("NewCZ_HPPHRProcessPage");
         step.checkAndFillPersonalAndResidencyDataCzHppStep2();
         step.checkAndFillWorkCzHppStep3();
+        step.checkAndFillWorkCzHppStep4();
     }
 }

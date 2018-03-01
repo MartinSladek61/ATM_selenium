@@ -11,7 +11,6 @@ import webtest.work.base.UploadDataFromExcel;
 
 import static org.junit.Assert.assertEquals;
 import java.util.List;
-import java.util.Random;
 
 public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
 
@@ -35,7 +34,7 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
     @FindBy(name = "prijmeni") private WebElement surnameFieldStep2;
     @FindBy(name = "rc") private WebElement birthNumberFieldStep2;
     @FindBy(name = "cislo_op") private WebElement idNumberFieldStep2;
-    @FindBy(name = "email2") private WebElement emailFieldStep2;
+    @FindBy(name = "email2") private WebElement email2FieldStep2;
     @FindBy(name = "telefon") private WebElement phoneFieldStep2;
     @FindBy(name = "ulice") private WebElement streetFieldStep2;
     @FindBy(name = "psc") private WebElement pscFieldStep2;
@@ -64,6 +63,8 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
     @FindBy(name = "soubor_prohlidka") private WebElement fileHealthQStep3;
     @FindBy(name = "poznamka") private WebElement noteStep3;
 
+    @FindBy(name = "email") private WebElement emailFieldStep4;
+
     /**
      * Constructor - overrides by super
      */
@@ -73,7 +74,6 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
      * Overrides isOpen - checking if the page is loaded
      * @return boolean value
      */
-
     @Override
     public boolean isOpen(){
         boolean statement = isElementPresent(labelStep1);
@@ -99,17 +99,17 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
         Assert.assertTrue(isElementPresent(newCZPersonStep3), "Label 'Nový zaměstnanec - CZ občan - KROK 3' is not displayed");
     }
 
-    public void proceedToStep4(){
+    public void proceedToStep3AndHalf(){
         scrollToElement(submitButton);
         isElementEnabled(submitButton);
         performClick(submitButton);
         Assert.assertTrue(isElementPresent(newCZPersonFromStep3To4), "Label 'Náhled a kontrola žádosti:' is not displayed");
-        cancelCreatingTask(false);
-        collapseTaskButton(false);
-        previousStepTaskButton(false);
+    }
+
+    public void proceedToStep4(){
         isElementEnabled(sendDocsAndContinueToStep4);
         performClick(sendDocsAndContinueToStep4);
-        Assert.assertTrue(isElementPresent(newCZPersonStep4));
+        Assert.assertTrue(isElementPresent(newCZPersonStep4), "Label 'Nový zaměstnanec - CZ občan - KROK 4' is not displayed");
     }
 
     //TODO - dodelat porovnani
@@ -122,7 +122,7 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
     }
 
     public void checkAndFillFormPersonalDataStep2() throws Exception{
-        WebElement[] elementList = {degreeSelectFieldStep2, nameFieldStep2, surnameFieldStep2, birthNumberFieldStep2, idNumberFieldStep2, emailFieldStep2, phoneFieldStep2};
+        WebElement[] elementList = {degreeSelectFieldStep2, nameFieldStep2, surnameFieldStep2, birthNumberFieldStep2, idNumberFieldStep2, email2FieldStep2, phoneFieldStep2};
         for(int i = 0; i < elementList.length; i++){
             isElementEnabled(elementList[i]);
             if(!isAttributePresent(elementList[i], "value")){
@@ -169,6 +169,14 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
         }
     }
 
+    public void checkAndFillAccessesFormStep4(){
+        Assert.assertTrue(isAttributePresent(futureIdFieldStep3, "readonly"));
+        if(!emailFieldStep4.isSelected()){
+            performClick(emailFieldStep4);
+        }
+
+    }
+
     private void checkSelect(WebElement selectElement, String sheet, int row, int col) throws Exception {
         Select select = new Select(selectElement);
         List<WebElement> selectOptions = select.getOptions();
@@ -177,6 +185,4 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
             col++;
         }
     }
-
-
 }

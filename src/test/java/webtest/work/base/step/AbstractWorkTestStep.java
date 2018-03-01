@@ -78,7 +78,6 @@ public class AbstractWorkTestStep {
         assertTrue(processPage.isOpen(), "CZ HPP process page doesn't open correctly.");
         processPage.checkFormGenerateQuestionnaire();
         processPage.proceedToStep2();
-
     }
 
     public void checkAndFillPersonalAndResidencyDataCzHppStep2() throws Exception {
@@ -97,7 +96,18 @@ public class AbstractWorkTestStep {
         processPage.previousStepTaskButton(true);
         processPage.checkFormGenerateQuestionnaire();
         processPage.checkAndFillJobTitleFormStep3();
+        processPage.proceedToStep3AndHalf();
+    }
+
+    public void checkAndFillWorkCzHppStep4(){
+        NewCZ_HPPHRProcessPage processPage = new NewCZ_HPPHRProcessPage();
+        processPage.cancelCreatingTask(false);
+        processPage.collapseTaskButton(false);
+        processPage.previousStepTaskButton(false);
         processPage.proceedToStep4();
+        processPage.cancelCreatingTask(false);
+        processPage.collapseTaskButton(false);
+
     }
 
 
