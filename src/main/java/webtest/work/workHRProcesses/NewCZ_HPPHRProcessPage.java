@@ -194,6 +194,7 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
     }
 
     public void checkDetailWFAndRequestSafetyCheck(){
+        //TODO
         if(isElementPresent(securityCheckButton)){ performClick(securityCheckButton); }
     }
 }
