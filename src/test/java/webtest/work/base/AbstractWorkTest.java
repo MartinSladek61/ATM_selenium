@@ -26,16 +26,15 @@ public class AbstractWorkTest {
         step.goToWorkFlow();
         step.checkButtonsOnTop();
         step.checkAndFillNewHRProcessForm();
-        //step.logoutFromHrm();
     }
 
     public static void newCZ_HPPProcess() throws Exception {
         AbstractWorkTestStep step = new AbstractWorkTestStep();
         newPersonHRProcess();
         step.generateAndStartCzHppWf();
-        //step.generateAndStartWF("NewCZ_HPPHRProcessPage");
         step.checkAndFillPersonalAndResidencyDataCzHppStep2();
         step.checkAndFillWorkCzHppStep3();
         step.checkAndFillWorkCzHppStep4();
+        step.safetyCheckCzHppStep();
     }
 }

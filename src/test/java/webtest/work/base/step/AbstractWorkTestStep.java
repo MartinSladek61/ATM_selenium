@@ -1,5 +1,6 @@
 package webtest.work.base.step;
 
+import webtest.work.base.AbstractWorkPage;
 import webtest.work.base.DriverSettings;
 import webtest.work.workHRProcesses.NewCZ_HPPHRProcessPage;
 import webtest.work.worksmoke.*;
@@ -34,7 +35,7 @@ public class AbstractWorkTestStep {
         homePage.clickToHrm();
         HrmPage hrmPage = new HrmPage();
         hrmPage.switchToTabs(DriverSettings.getDriver(), 1);
-        hrmPage.closeTab(DriverSettings.getDriver(), 0);
+        AbstractWorkPage.closeTab(DriverSettings.getDriver(), 0);
         hrmPage.switchToTabs(DriverSettings.getDriver(), 0);
         assertTrue(hrmPage.isOpen(), "HRM page doesn't open correctly.");
     }
@@ -73,41 +74,47 @@ public class AbstractWorkTestStep {
     }
 
     public void generateAndStartCzHppWf() throws Exception {
-        NewCZ_HPPHRProcessPage processPage = new NewCZ_HPPHRProcessPage();
-        processPage.proceedToProcess();
-        assertTrue(processPage.isOpen(), "CZ HPP process page doesn't open correctly.");
-        processPage.checkFormGenerateQuestionnaire();
-        processPage.proceedToStep2();
+        NewCZ_HPPHRProcessPage czProcessPage = new NewCZ_HPPHRProcessPage();
+        czProcessPage.proceedToProcess();
+        assertTrue(czProcessPage.isOpen(), "CZ HPP process page doesn't open correctly.");
+        czProcessPage.checkFormGenerateQuestionnaire();
+        czProcessPage.proceedToStep2();
     }
 
     public void checkAndFillPersonalAndResidencyDataCzHppStep2() throws Exception {
-        NewCZ_HPPHRProcessPage processPage = new NewCZ_HPPHRProcessPage();
-        processPage.cancelCreatingTask(false);
-        processPage.collapseTaskButton(false);
-        processPage.checkAndFillFormPersonalDataStep2();
-        processPage.checkAndFillFormResidencyDataStep2();
+        NewCZ_HPPHRProcessPage czProcessPage = new NewCZ_HPPHRProcessPage();
+        czProcessPage.cancelCreatingTask(false);
+        czProcessPage.collapseTaskButton(false);
+        czProcessPage.checkAndFillFormPersonalDataStep2();
+        czProcessPage.checkAndFillFormResidencyDataStep2();
     }
 
     public void checkAndFillWorkCzHppStep3() throws Exception {
-        NewCZ_HPPHRProcessPage processPage = new NewCZ_HPPHRProcessPage();
-        processPage.proceedToStep3();
-        processPage.cancelCreatingTask(false);
-        processPage.collapseTaskButton(false);
-        processPage.previousStepTaskButton(true);
-        processPage.checkFormGenerateQuestionnaire();
-        processPage.checkAndFillJobTitleFormStep3();
-        processPage.proceedToStep3AndHalf();
+        NewCZ_HPPHRProcessPage czProcessPage = new NewCZ_HPPHRProcessPage();
+        czProcessPage.proceedToStep3();
+        czProcessPage.cancelCreatingTask(false);
+        czProcessPage.collapseTaskButton(false);
+        czProcessPage.previousStepTaskButton(true);
+        czProcessPage.checkFormGenerateQuestionnaire();
+        czProcessPage.checkAndFillJobTitleFormStep3();
+        czProcessPage.proceedToStep3AndHalf();
     }
 
-    public void checkAndFillWorkCzHppStep4(){
-        NewCZ_HPPHRProcessPage processPage = new NewCZ_HPPHRProcessPage();
-        processPage.cancelCreatingTask(false);
-        processPage.collapseTaskButton(false);
-        processPage.previousStepTaskButton(false);
-        processPage.proceedToStep4();
-        processPage.cancelCreatingTask(false);
-        processPage.collapseTaskButton(false);
+    public void checkAndFillWorkCzHppStep4() throws Exception {
+        NewCZ_HPPHRProcessPage czProcessPage = new NewCZ_HPPHRProcessPage();
+        czProcessPage.cancelCreatingTask(false);
+        czProcessPage.collapseTaskButton(false);
+        czProcessPage.previousStepTaskButton(false);
+        czProcessPage.proceedToStep4();
+        czProcessPage.cancelCreatingTask(false);
+        czProcessPage.collapseTaskButton(false);
+        czProcessPage.checkAndFillAccessesFormStep4();
+    }
 
+    public void safetyCheckCzHppStep(){
+        NewCZ_HPPHRProcessPage czProcessPage = new NewCZ_HPPHRProcessPage();
+        czProcessPage.proceedToSafetyCheck();
+        czProcessPage.checkDetailWFAndRequestSafetyCheck();
     }
 
 

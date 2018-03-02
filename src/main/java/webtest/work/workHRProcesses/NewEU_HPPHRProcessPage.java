@@ -10,7 +10,7 @@ public class NewEU_HPPHRProcessPage extends AbstractWorkPage {
     @FindBy(xpath = "//a[contains(@href,'hpp_eu')]") private WebElement euHppButton ;
 
     /**
-     * Constructor - overrides by super
+     * Constructor - overridden by super
      */
     public NewEU_HPPHRProcessPage(){ super(); }
 

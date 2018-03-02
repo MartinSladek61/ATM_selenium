@@ -6,7 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 /**
@@ -126,7 +128,7 @@ public class AbstractWorkPage extends DriverSettings {
     /**
      * Checks and clicks on cancel task button if needed
      *
-     * @param cancel if true, cancels the task
+     * @param cancel if it's true, cancels the task
      */
     public void cancelCreatingTask(boolean cancel){
         isElementEnabled(cancelTaskButton);
@@ -139,7 +141,7 @@ public class AbstractWorkPage extends DriverSettings {
      *
      * Checks and clicks on collapse task button if needed
      *
-     * @param collapse if true, collapses task
+     * @param collapse if it's true, collapses task
      */
     public void collapseTaskButton(boolean collapse){
         isElementEnabled(collapseTaskButton);
@@ -148,6 +150,10 @@ public class AbstractWorkPage extends DriverSettings {
         }
     }
 
+    /**
+     * Checks and clicks on previous task button if needed
+     * @param change if it's true, clicks on change button
+     */
     public void previousStepTaskButton(boolean change){
         isElementEnabled(changePreviousStepTaskButton);
         if(change){
@@ -157,6 +163,21 @@ public class AbstractWorkPage extends DriverSettings {
 
     protected boolean compareTextFromAppWithExcelData(String textFromApp, String sheet, int row, int col) throws Exception {
         return textFromApp.equals(UploadDataFromExcel.setVariablesForNewPerson(sheet, row, col));
+    }
+
+    protected void checkSelect(WebElement selectElement, String sheet, int row, int col) throws Exception {
+        Select select = new Select(selectElement);
+        List<WebElement> selectOptions = select.getOptions();
+        for(WebElement element : selectOptions){
+            Assert.assertEquals(element.getText(), UploadDataFromExcel.setVariablesForNewPerson(sheet, row, col));
+            col++;
+        }
+    }
+
+    protected void proceed(WebElement submitButton){
+        scrollToElement(submitButton);
+        isElementEnabled(submitButton);
+        performClick(submitButton);
     }
 
     protected void scrollToElement(WebElement element){

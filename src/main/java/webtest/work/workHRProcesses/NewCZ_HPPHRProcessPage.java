@@ -24,11 +24,13 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
     @FindBy(xpath = "//h3[contains(text(),'Náhled a kontrola žádosti:')]") private WebElement newCZPersonFromStep3To4;
     @FindBy(xpath = "//h3[contains(text(),'Nový zaměstnanec - CZ občan - KROK 4')]") private WebElement newCZPersonStep4;
     @FindBy(xpath = "//a[contains(text(),'Ano, odeslat hned a pokračovat')]") private WebElement sendDocsAndContinueToStep4;
+    @FindBy(xpath = "//h3[contains(text(),'Nový zaměstnanec - CZ občan - DETAIL WF')]") private WebElement newCZPersonStepDetail;
 
     /* //TODO - CELY FORMULAR PREDELAR, NEJDOU UCHOPIT TEXTOVE HODNOTY!!!
     @FindBy(xpath = "//strong[contains(text(),'Tester')]") private WebElement nameFormTextField;
     */
 
+    /* Step 2 */
     @FindBy(name = "titul") private WebElement degreeSelectFieldStep2;
     @FindBy(name = "jmeno") private WebElement nameFieldStep2;
     @FindBy(name = "prijmeni") private WebElement surnameFieldStep2;
@@ -40,7 +42,7 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
     @FindBy(name = "psc") private WebElement pscFieldStep2;
     @FindBy(name = "mesto") private WebElement cityFieldStep2;
     @FindBy(name = "zeme") private WebElement countryFieldStep2;
-
+    /* Step 3 */
     @FindBy(name = "budID") private WebElement futureIdFieldStep3;
     @FindBy(name = "pozice") private WebElement positionSelectStep3;
     @FindBy(name = "manager") private WebElement managerSelectStep3;
@@ -62,11 +64,18 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
     @FindBy(name = "soubor_osobni_dotaznik") private WebElement filePersonalQStep3;
     @FindBy(name = "soubor_prohlidka") private WebElement fileHealthQStep3;
     @FindBy(name = "poznamka") private WebElement noteStep3;
-
+    /* Step 4  */
     @FindBy(name = "email") private WebElement emailFieldStep4;
+    @FindBy(name = "licence") private WebElement licenseSelectStep4;
+    @FindBy(name = "tarif") private WebElement tariffSelectStep4;
+    @FindBy(name = "work_ip") private WebElement infoPortalSelectStep4;
+    @FindBy(name = "work_hrm") private WebElement hrmSelectStep4;
+    @FindBy(name = "work_pm") private WebElement projectsSelectStep4;
+    /* Detail check and security check */
+    @FindBy(xpath = "//a[contains(text(),'bezpečnostní prověrku')]") private WebElement securityCheckButton;
 
     /**
-     * Constructor - overrides by super
+     * Constructor - overridden by super
      */
     public NewCZ_HPPHRProcessPage(){ super(); }
 
@@ -87,36 +96,34 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
     }
 
     public void proceedToStep2(){
-        isElementEnabled(proceedInProcessWF);
-        performClick(proceedInProcessWF);
+        proceed(proceedInProcessWF);
         Assert.assertTrue(isElementPresent(newCZPersonStep2), "Label 'Nový zaměstnanec - CZ občan - KROK 2' is not displayed");
     }
 
     public void proceedToStep3(){
-        scrollToElement(submitButton);
-        isElementEnabled(submitButton);
-        performClick(submitButton);
+        proceed(submitButton);
         Assert.assertTrue(isElementPresent(newCZPersonStep3), "Label 'Nový zaměstnanec - CZ občan - KROK 3' is not displayed");
     }
 
     public void proceedToStep3AndHalf(){
-        scrollToElement(submitButton);
-        isElementEnabled(submitButton);
-        performClick(submitButton);
+        proceed(submitButton);
         Assert.assertTrue(isElementPresent(newCZPersonFromStep3To4), "Label 'Náhled a kontrola žádosti:' is not displayed");
     }
 
     public void proceedToStep4(){
-        isElementEnabled(sendDocsAndContinueToStep4);
-        performClick(sendDocsAndContinueToStep4);
+        proceed(sendDocsAndContinueToStep4);
         Assert.assertTrue(isElementPresent(newCZPersonStep4), "Label 'Nový zaměstnanec - CZ občan - KROK 4' is not displayed");
+    }
+
+    public void proceedToSafetyCheck(){
+        proceed(submitButton);
+        Assert.assertTrue(isElementPresent(newCZPersonStepDetail), "Label 'Nový zaměstnanec - CZ občan - DETAIL WF' is not displayed");
     }
 
     //TODO - dodelat porovnani
     public void checkFormGenerateQuestionnaire() throws Exception {
         for(WebElement element : formGenerateQuestionnaire){
             isElementEnabled(element);
-            //assertEquals(element.getAttribute("value"), UploadDataFromExcel.setVariablesForNewPerson("NewPerson1", 1, formGenerateQuestionnaire.indexOf(element)));
         }
         performClick(submitButton);
     }
@@ -153,13 +160,13 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
         Assert.assertTrue(isAttributePresent(futureIdFieldStep3, "readonly"));
         WebElement[] selectList = {positionSelectStep3, managerSelectStep3, contractSelectStep3, formOfWageSelectStep3, undefinedTermSelectStep3, testTermSelectStep3, fteSelectStep3};
         WebElement[] textFieldList = {wageFieldStep3, bankPrefixNumberFieldStep3, bankAccountFieldStep3, bankCodeFieldStep3, vacationFieldStep3, vacationBalanceFieldStep3, boardingFieldStep3, noteStep3};
-        for(int i = 0; i < selectList.length; i++){
-            if(i == 0){ skipRows = 4; } else { skipRows = 2; }
+        for (WebElement select : selectList) {
+            if (row == 0) { skipRows = 4; } else { skipRows = 2; }
             row = row + skipRows;
-            isElementEnabled(selectList[i]);
-            checkSelect(selectList[i], "CZ_HPP", row, 0);
-            Select select = new Select(selectList[i]);
-            select.selectByValue(UploadDataFromExcel.setVariablesForNewPerson("CZ_HPP", 23, col1));
+            isElementEnabled(select);
+            checkSelect(select, "CZ_HPP", row, 0);
+            Select box = new Select(select);
+            box.selectByValue(UploadDataFromExcel.setVariablesForNewPerson("CZ_HPP", 23, col1));
             col1++;
         }
         for(WebElement textElement : textFieldList){
@@ -169,20 +176,24 @@ public class NewCZ_HPPHRProcessPage extends AbstractWorkPage{
         }
     }
 
-    public void checkAndFillAccessesFormStep4(){
+    public void checkAndFillAccessesFormStep4() throws Exception {
+        WebElement[] selectList = {licenseSelectStep4, tariffSelectStep4 , infoPortalSelectStep4, hrmSelectStep4, projectsSelectStep4};
+        int skipRows = 2, row = 26, col = 0;
         Assert.assertTrue(isAttributePresent(futureIdFieldStep3, "readonly"));
         if(!emailFieldStep4.isSelected()){
             performClick(emailFieldStep4);
         }
-
-    }
-
-    private void checkSelect(WebElement selectElement, String sheet, int row, int col) throws Exception {
-        Select select = new Select(selectElement);
-        List<WebElement> selectOptions = select.getOptions();
-        for(WebElement element : selectOptions){
-            Assert.assertEquals(element.getText(), UploadDataFromExcel.setVariablesForNewPerson(sheet, row, col));
+        for(WebElement select : selectList){
+            isElementEnabled(select);
+            checkSelect(select, "CZ_HPP", row, 0);
+            Select box = new Select(select);
+            box.selectByValue(UploadDataFromExcel.setVariablesForNewPerson("CZ_HPP", 37, col));
+            row = row + skipRows;
             col++;
         }
+    }
+
+    public void checkDetailWFAndRequestSafetyCheck(){
+        if(isElementPresent(securityCheckButton)){ performClick(securityCheckButton); }
     }
 }

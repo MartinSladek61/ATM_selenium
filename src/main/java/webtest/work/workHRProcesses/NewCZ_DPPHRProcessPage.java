@@ -10,7 +10,7 @@ public class NewCZ_DPPHRProcessPage extends AbstractWorkPage {
     @FindBy(xpath = "//a[contains(@href,'dpp_cz')]") private WebElement czDppButon ;
 
     /**
-     * Constructor - overrides by super
+     * Constructor - overridden by super
      */
     public NewCZ_DPPHRProcessPage(){ super(); }
 

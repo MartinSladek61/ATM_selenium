@@ -10,7 +10,7 @@ public class NewNON_EU_DPPHRProcessPage extends AbstractWorkPage {
     @FindBy(xpath = "//a[contains(@href,'dpp_non_eu')]") private WebElement nonEuDppButton ;
 
     /**
-     * Constructor - overrides by super
+     * Constructor - overridden by super
      */
     public NewNON_EU_DPPHRProcessPage(){ super(); }
 
